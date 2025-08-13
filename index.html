@@ -1,75 +1,248 @@
-<!-- Add this section to your portfolio homepage (replace or add to your existing button section) -->
-
-<style>
-    .circle-links {
-        display: flex;
-        flex-direction: row; /* Horizontal arrangement */
-        justify-content: center;
-        gap: 18px;
-        margin: 28px 0 0 0;
-        flex-wrap: wrap; /* Allows wrapping on small screens */
-    }
-    .circle-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        background: linear-gradient(120deg, #1565c0 55%, #42a5f5 100%);
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 17px;
-        box-shadow: 0 2px 10px #0003;
-        transition: 0.18s;
-        border: 2px solid #fff;
-        position: relative;
-    }
-    .circle-btn span {
-        display: block;
-        text-align: center;
-        line-height: 1.2;
-        padding: 0 6px;
-    }
-    .circle-btn.gmail { background: linear-gradient(120deg, #ea4335 55%, #ffb199 100%);}
-    .circle-btn.linkedin { background: linear-gradient(120deg, #0077b5 60%, #42a5f5 100%);}
-    .circle-btn.github { background: linear-gradient(120deg, #24292e 60%, #6366f1 100%);}
-    .circle-btn.phone { background: linear-gradient(120deg, #34a853 60%, #b7ffc1 100%);}
-    .circle-btn.location { background: linear-gradient(120deg, #fbbc05 60%, #ffe082 100%); color:#222;}
-    .circle-btn.resume { background: linear-gradient(120deg, #469d49 60%, #a5d6a7 100%);}
-    .circle-btn.portfolio { background: linear-gradient(120deg, #ff5e62 60%, #ff9966 100%);}
-    .circle-btn:hover {
-        transform: scale(1.10);
-        filter: brightness(0.92);
-        box-shadow: 0 4px 16px #0a397766;
-    }
-    @media (max-width: 600px) {
-        .circle-btn { width: 54px; height: 54px; font-size: 13px;}
-        .circle-links { gap: 10px;}
-    }
-</style>
-
-<div class="circle-links">
-    <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
-        <span>Gmail</span>
-    </a>
-    <a href="https://www.linkedin.com/in/aamirdigitalmarketer/" target="_blank" class="circle-btn linkedin">
-        <span>LinkedIn</span>
-    </a>
-    <a href="https://github.com/aamirhussain2002" target="_blank" class="circle-btn github">
-        <span>GitHub</span>
-    </a>
-    <a href="tel:+923078077765" target="_blank" class="circle-btn phone">
-        <span>Mobile</span>
-    </a>
-    <a href="https://maps.google.com/?q=Pakistan" target="_blank" class="circle-btn location">
-        <span>Pakistan</span>
-    </a>
-    <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank" class="circle-btn resume">
-        <span>Resume</span>
-    </a>
-    <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank" class="circle-btn portfolio">
-        <span>Portfolio</span>
-    </a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aamir Hussain | Digital Marketing Specialist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #f7f9fa; color: #222;}
+        header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center;}
+        nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
+        nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
+        nav a:hover { text-decoration: underline;}
+        .circle-links-bg {
+            background: linear-gradient(120deg, #1565c0 50%, #42a5f5 100%);
+            padding: 32px 0;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #1565c022;
+            margin-bottom: 40px;
+            margin-top: 24px;
+        }
+        .circle-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+        .circle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, #1a237e 40%, #42a5f5 100%);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 2px 10px #0002;
+            transition: 0.18s;
+            border: 2px solid #fff;
+            position: relative;
+            text-align: center;
+        }
+        .circle-btn span {
+            display: block;
+            line-height: 1.2;
+            padding: 0 5px;
+        }
+        .circle-btn.gmail,
+        .circle-btn.linkedin,
+        .circle-btn.github,
+        .circle-btn.phone,
+        .circle-btn.location,
+        .circle-btn.resume,
+        .circle-btn.portfolio {
+            background: linear-gradient(120deg, #1a237e 40%, #42a5f5 100%);
+            color: #fff;
+        }
+        .circle-btn:hover {
+            transform: scale(1.09);
+            filter: brightness(0.95);
+            box-shadow: 0 6px 25px #42a5f5aa;
+            z-index: 1;
+        }
+        .profile {
+            background: #fff; box-shadow: 0 2px 8px #0001; margin: 24px auto 0 auto; max-width: 480px; border-radius: 12px; padding: 32px 24px; text-align: center;
+        }
+        .profile-img { 
+            width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid #1565c0; margin-bottom: 16px; box-shadow: 0 2px 8px #0002;
+        }
+        .profile h1 { font-size: 2.2em; margin-bottom: 6px;}
+        .profile h2 { font-size: 1.25em; color: #1565c0; margin-bottom: 16px;}
+        section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px;}
+        section:not(:first-of-type) { margin-top: 24px;}
+        section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
+        ul, li { margin: 0; padding: 0;}
+        li { margin-bottom: 8px;}
+        .skill-btns { display: flex; flex-wrap: wrap; gap: 14px; margin: 10px 0 0 0;}
+        .skill-btn { 
+            background: linear-gradient(90deg,#1565c0,#42a5f5); color: #fff; border: none; padding: 9px 18px; border-radius: 18px; font-weight: 500; font-size: 15px; cursor: default;
+            box-shadow: 0 2px 6px #0001; transition: 0.2s;
+        }
+        .skill-btn:hover { filter: brightness(0.98); transform: scale(1.08);}
+        .cert-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;}
+        .cert-btn { 
+            background: linear-gradient(90deg,#469d49,#a5d6a7); color: #fff; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 500; font-size: 14px; cursor: pointer;
+            box-shadow: 0 2px 6px #0001; transition: 0.2s;
+        }
+        .cert-btn:hover { filter: brightness(0.91); transform: scale(1.05);}
+        .cert-detail { margin-bottom: 10px; color: #444; font-size: 15px; margin-left: 10px;}
+        .resume-btn { margin-top: 24px; display: flex; justify-content: center;}
+        .resume-btn a { background: #469d49; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1.07em; font-weight: 600;}
+        .resume-btn a:hover { background: #287d29;}
+        .project-img {
+            width: 100%; max-width: 380px; display: block; margin: 0 auto 20px auto; border-radius: 12px; box-shadow: 0 2px 8px #0002;
+        }
+        .edu-list { margin-top: 6px;}
+        @media (max-width: 600px) {
+            section, .profile { padding: 18px 8px;}
+            nav { gap: 14px; font-size: 14px;}
+            .profile-img { width: 80px; height: 80px;}
+            .project-img { max-width: 98vw; }
+            .circle-btn { width: 48px; height: 48px; font-size: 12px;}
+            .circle-links-bg { padding: 18px 0;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#internship">Internship</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#education">Education</a>
+            <a href="#resume">Resume</a>
+        </nav>
+    </header>
+    <div class="circle-links-bg">
+        <div class="circle-links">
+            <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
+                <span>Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/aamirdigitalmarketer/" target="_blank" class="circle-btn linkedin">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/aamirhussain2002" target="_blank" class="circle-btn github">
+                <span>GitHub</span>
+            </a>
+            <a href="tel:+923078077765" target="_blank" class="circle-btn phone">
+                <span>Mobile</span>
+            </a>
+            <a href="https://maps.google.com/?q=Pakistan" target="_blank" class="circle-btn location">
+                <span>Pakistan</span>
+            </a>
+            <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank" class="circle-btn resume">
+                <span>Resume</span>
+            </a>
+            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank" class="circle-btn portfolio">
+                <span>Portfolio</span>
+            </a>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="profile.jpg" alt="Aamir Hussain Photo" class="profile-img">
+        <h1>Aamir Hussain</h1>
+        <h2>Digital Marketing Specialist</h2>
+    </div>
+    <section id="about">
+        <h3>About</h3>
+        <p>
+            I am a Digital Marketing Specialist focused on Google Ads, Meta Ads, and social media campaigns. I create content for web and social platforms, using data to improve performance and reach the right audience. My content aligns with brand strategy and user intent. Alongside my marketing career, I am undergoing clinical training in optometry. My goal is to lead digital campaigns that deliver real business value.
+        </p>
+    </section>
+    <section id="skills">
+        <h3>Skills</h3>
+        <div class="skill-btns">
+            <span class="skill-btn">Google Ads</span>
+            <span class="skill-btn">Meta Ads</span>
+            <span class="skill-btn">Facebook Business Manager</span>
+            <span class="skill-btn">Facebook</span>
+            <span class="skill-btn">Instagram</span>
+            <span class="skill-btn">LinkedIn</span>
+            <span class="skill-btn">Content Strategy</span>
+            <span class="skill-btn">Campaign Planning</span>
+            <span class="skill-btn">Google Analytics</span>
+            <span class="skill-btn">Meta Insights</span>
+            <span class="skill-btn">Audience Insights</span>
+            <span class="skill-btn">Performance Analysis</span>
+            <span class="skill-btn">Competitor SWOT Analysis</span>
+        </div>
+    </section>
+    <section id="projects">
+        <h3>Projects</h3>
+        <img src="project.jpg" alt="Digital Brand Launch Project" class="project-img">
+        <ul>
+            <li>
+                <strong>Digital Brand Launch & Campaign Strategy (2025):</strong>
+                <ul>
+                    <li>Designed and launched multi-platform campaigns (Facebook, Instagram, TikTok, YouTube)</li>
+                    <li>SMART objectives for brand awareness & customer acquisition</li>
+                    <li>Audience segmentation, competitor SWOT, brand key & tagline</li>
+                    <li>Created 2-week content calendar with teasers, reels, testimonials</li>
+                    <li>Produced 30-60 sec Digital Video Commercials (DVCs) for YouTube & Facebook</li>
+                    <li>Boosted ads and tracked KPIs: reach, engagement, CTR, conversions</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="resume-btn">
+            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">View Portfolio</a>
+        </div>
+    </section>
+    <section id="internship">
+        <h3>Internship</h3>
+        <ul>
+            <li>
+                <strong>M Tech Solution – Digital Marketing Intern (Aug 2025 – Present, Islamabad):</strong>
+                <ul>
+                    <li>Planning, executing, and optimizing online marketing campaigns</li>
+                    <li>Google Ads: Keyword research, search intent analysis, negative keyword management</li>
+                    <li>Performance analysis: CTR, CPC, conversions, ROI</li>
+                    <li>Campaign optimization: bids, budgets, targeting</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Alshifa Trust Eye Hospital – Trainee Optometrist (2023 – 2026, Rawalpindi):</strong>
+                <ul>
+                    <li>Conducted eye exams: Refraction, Retinoscopy, Orthoptic assessment</li>
+                    <li>Patient communication and data documentation</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section id="certificates">
+        <h3>Certificates</h3>
+        <div class="cert-btns">
+            <button class="cert-btn">Digital Marketing Certificate – IEC</button>
+            <button class="cert-btn">Digital Marketing Certified – IEC</button>
+            <button class="cert-btn">HubSpot Academy</button>
+            <button class="cert-btn">Top Scorer FSc Pre Medical</button>
+        </div>
+        <div class="cert-detail"><strong>Digital Marketing Certificate – IEC:</strong> Certificate for mastering Google Ads, Meta Ads, Campaign Planning & Analytics.</div>
+        <div class="cert-detail"><strong>Digital Marketing Certified – IEC:</strong> Earned for advanced digital marketing skills and strategy implementation.</div>
+        <div class="cert-detail"><strong>Certificate of Achievements – HubSpot Academy:</strong> Awarded for completing marketing and analytics modules.</div>
+        <div class="cert-detail"><strong>Top Scorer in FSc Pre Medical:</strong> Govt Higher Secondary School, top marks in Pre-Medical.</div>
+    </section>
+    <section id="education">
+        <h3>Education</h3>
+        <ul class="edu-list">
+            <li>Digital Marketing – Institute of Emerging Careers (IEC), Mianwali (Apr 2025 – Sep 2025)</li>
+            <li>Bachelor of Optometry & Orthoptics – University of Health Sciences, Lahore (2023 – 2026)</li>
+            <li>FSc (Pre-Medical) – Govt Higher Secondary School, Kamar Mushani (2019 – 2021)</li>
+            <li>Matric Science Group – Govt High School Trag, Trag Sharif (2017 – 2019)</li>
+        </ul>
+    </section>
+    <section id="resume">
+        <h3>Resume</h3>
+        <div class="resume-btn">
+            <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank">Download Resume</a>
+        </div>
+    </section>
+</body>
+</html>
