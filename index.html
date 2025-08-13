@@ -3,10 +3,11 @@
 <style>
     .circle-links {
         display: flex;
+        flex-direction: row; /* Horizontal arrangement */
         justify-content: center;
         gap: 18px;
         margin: 28px 0 0 0;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allows wrapping on small screens */
     }
     .circle-btn {
         display: flex;
@@ -29,6 +30,7 @@
         display: block;
         text-align: center;
         line-height: 1.2;
+        padding: 0 6px;
     }
     .circle-btn.gmail { background: linear-gradient(120deg, #ea4335 55%, #ffb199 100%);}
     .circle-btn.linkedin { background: linear-gradient(120deg, #0077b5 60%, #42a5f5 100%);}
@@ -44,6 +46,7 @@
     }
     @media (max-width: 600px) {
         .circle-btn { width: 54px; height: 54px; font-size: 13px;}
+        .circle-links { gap: 10px;}
     }
 </style>
 
