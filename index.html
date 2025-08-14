@@ -5,8 +5,37 @@
     <title>Aamir Hussain | Digital Marketing Specialist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #f7f9fa; color: #222;}
-        header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center;}
+        /* Beautiful overall website background */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+            /* Gradient + geometric SVG shapes + soft overlay */
+            background:
+                linear-gradient(120deg, #e3f2fd 65%, #fff 100%),
+                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
+            position: relative;
+        }
+        body::before {
+            /* Add floating circles for soft, elegant effect */
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 12% 20%, #42a5f5 0%, transparent 65%) 0 0/800px 540px no-repeat,
+                radial-gradient(circle at 88% 80%, #1565c0 0%, transparent 70%) 0 0/900px 540px no-repeat,
+                radial-gradient(circle at 55% 15%, #bbdefb 0%, transparent 70%) 0 0/600px 340px no-repeat,
+                radial-gradient(circle at 75% 60%, #90caf9 0%, transparent 70%) 0 0/600px 320px no-repeat;
+            opacity: 0.25;
+        }
+        /* Keep header/nav above background */
+        header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center; position: relative; z-index: 1;}
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
         nav a:hover { text-decoration: underline;}
@@ -16,6 +45,8 @@
             width: 440px;
             max-width: 96vw;
             margin: 28px auto 0 auto;
+            z-index: 2;
+            position: relative;
         }
         .profile-flip-card {
             width: 100%;
@@ -26,7 +57,7 @@
             cursor: pointer;
         }
         .profile-flip-container.flipped .profile-flip-card {
-            transform: rotateY(-180deg); /* flip to the left */
+            transform: rotateY(-180deg);
         }
         .profile-front, .profile-back {
             position: absolute;
@@ -36,11 +67,10 @@
             border-radius: 20px;
             box-shadow: 0 4px 18px #1565c033;
         }
-        /* 3D Name Styling & Background Design */
         .profile-front {
             background:
                 linear-gradient(120deg, #e3f2fd 60%, #fff 120%),
-                url("https://www.transparenttextures.com/patterns/pw-maze-white.png"); /* Subtle geometric pattern */
+                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
             position: relative;
             overflow: hidden;
             display: flex;
@@ -66,7 +96,6 @@
             opacity: 0.13;
             z-index: 0;
         }
-        /* Extra background shapes for more design */
         .profile-front .bg-shape1 {
             position: absolute;
             top: 40px; left: 40px;
@@ -129,7 +158,6 @@
         .profile-flip-hint:hover {
             background: #c8e6c9;
         }
-        /* Back Side */
         .profile-back {
             background:
                 linear-gradient(120deg, #fafafa 50%, #e3f2fd 100%),
@@ -168,7 +196,6 @@
             transition: 0.15s;
         }
         .profile-back-skill-btn:hover { filter: brightness(0.93); transform: scale(1.06);}
-        /* Responsive */
         @media (max-width: 600px) {
             .profile-flip-container { width: 98vw; }
             .profile-flip-card, .profile-front, .profile-back { height: 135px; }
@@ -186,6 +213,8 @@
             box-shadow: 0 4px 24px #1565c022;
             margin-bottom: 40px;
             margin-top: 24px;
+            position: relative;
+            z-index: 1;
         }
         .circle-links-bg.bottom-circles {
             margin-top: 0;
@@ -238,7 +267,7 @@
             box-shadow: 0 6px 25px #42a5f5aa;
             z-index: 1;
         }
-        section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px;}
+        section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px; position: relative; z-index: 1;}
         section:not(:first-of-type) { margin-top: 24px;}
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
         ul, li { margin: 0; padding: 0;}
@@ -268,7 +297,6 @@
             z-index: 0;
         }
         #about > * { position: relative; z-index: 1; }
-        /* Custom skills section */
         #skills {
             background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
             position: relative;
