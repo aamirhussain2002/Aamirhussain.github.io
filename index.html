@@ -10,17 +10,59 @@
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
         nav a:hover { text-decoration: underline;}
-        /* 3D Name Styling */
-        .profile {
-            background: #fff; 
-            box-shadow: 0 2px 8px #0001; 
-            margin: 24px auto 0 auto; 
-            max-width: 480px; 
-            border-radius: 12px; 
-            padding: 32px 24px 24px 24px;
-            text-align: center;
+        /* Flip Card Styles */
+        .profile-flip-container {
+            perspective: 1000px;
+            width: 440px;
+            max-width: 96vw;
+            margin: 28px auto 0 auto;
+        }
+        .profile-flip-card {
+            width: 100%;
+            height: 170px;
+            position: relative;
+            transition: transform 0.8s cubic-bezier(.23,.41,.47,.99);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .profile-flip-container.flipped .profile-flip-card {
+            transform: rotateY(180deg);
+        }
+        .profile-front, .profile-back {
+            position: absolute;
+            width: 100%;
+            height: 170px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 18px #1565c033;
+        }
+        /* 3D Name Styling & Background Design */
+        .profile-front {
+            background: linear-gradient(120deg, #e3f2fd 60%, #fff 120%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-front::before {
+            content: "";
+            position: absolute;
+            top: -30px; left: -60px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, #1565c0 48%, transparent 80%);
+            opacity: 0.18;
+            z-index: 0;
+        }
+        .profile-front::after {
+            content: "";
+            position: absolute;
+            bottom: -40px; right: -80px;
+            width: 180px; height: 120px;
+            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
+            opacity: 0.13;
+            z-index: 0;
         }
         .profile-title {
             font-size: 2.4em;
@@ -28,8 +70,13 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #1565c0;
-            text-shadow: 2px 2px 0 #42a5f5, 4px 4px 12px #1565c088;
+            text-shadow:
+                1px 1px 0 #42a5f5,
+                2px 2px 0 #42a5f5,
+                4px 4px 12px #1565c088;
             margin-bottom: 5px;
+            z-index: 1;
+            position: relative;
         }
         .profile-subtitle {
             font-size: 1.25em;
@@ -42,22 +89,70 @@
             padding: 6px 18px;
             display: inline-block;
             margin-bottom: 15px;
+            z-index: 1;
+            position: relative;
         }
-        .profile-bg-decor {
-            position: absolute;
-            top: -50px; left: -80px;
-            width: 180px; height: 180px;
-            background: radial-gradient(circle, #42a5f5 48%, transparent 80%);
-            opacity: 0.25;
-            z-index: 0;
+        .profile-flip-hint {
+            color: #287d29;
+            background: #e3f2fd;
+            border-radius: 7px;
+            font-size: 13px;
+            padding: 2px 14px;
+            margin-top: 6px;
+            box-shadow: 0 1px 4px #469d4922;
+            z-index: 2;
+            position: relative;
+            font-weight: 500;
+            transition: background 0.22s;
         }
-        .profile-bg-decor2 {
-            position: absolute;
-            bottom: -60px; right: -100px;
-            width: 240px; height: 140px;
-            background: radial-gradient(circle, #1565c0 32%, transparent 80%);
-            opacity: 0.13;
-            z-index: 0;
+        .profile-flip-hint:hover {
+            background: #c8e6c9;
+        }
+        /* Back Side */
+        .profile-back {
+            background: linear-gradient(120deg, #fafafa 50%, #e3f2fd 100%);
+            color: #1565c0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            border: 2px solid #42a5f5;
+        }
+        .profile-back-title {
+            font-size: 1.15em;
+            font-weight: bold;
+            margin-bottom: 7px;
+            letter-spacing: 1px;
+        }
+        .profile-back-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+        .profile-back-skill-btn {
+            background: linear-gradient(120deg, #42a5f5 60%, #1565c0 100%);
+            color: #fff;
+            border-radius: 50px;
+            padding: 7px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            box-shadow: 0 2px 8px #42a5f533;
+            cursor: default;
+            transition: 0.15s;
+        }
+        .profile-back-skill-btn:hover { filter: brightness(0.93); transform: scale(1.06);}
+        /* Responsive */
+        @media (max-width: 600px) {
+            .profile-flip-container { width: 98vw; }
+            .profile-flip-card, .profile-front, .profile-back { height: 135px; }
+            .profile-title { font-size: 1.3em; }
+            .profile-subtitle { font-size: 1em; padding: 5px 12px;}
+            .profile-back-title { font-size: 0.98em;}
+            .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
         }
         /* Circle Links Styling */
         .circle-links-bg {
@@ -119,7 +214,6 @@
             box-shadow: 0 6px 25px #42a5f5aa;
             z-index: 1;
         }
-        /* Section Styling */
         section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px;}
         section:not(:first-of-type) { margin-top: 24px;}
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
@@ -150,7 +244,6 @@
             z-index: 0;
         }
         #about > * { position: relative; z-index: 1; }
-
         /* Custom skills section */
         #skills {
             background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%);
@@ -176,7 +269,6 @@
             z-index: 0;
         }
         #skills > * { position: relative; z-index: 1; }
-
         .skills-heading {
             font-size: 1.5em;
             color: #1565c0;
@@ -213,9 +305,7 @@
             box-shadow: 0 2px 6px #0001; transition: 0.2s;
         }
         .skill-horizontal-btn:hover { filter: brightness(0.97); transform: scale(1.08);}
-        /* old skill-btns hidden */
         .skill-btns { display:none; }
-        /* Project section style */
         .project-img {
             width: 100%; max-width: 380px; display: block; margin: 0 auto 20px auto; border-radius: 12px; box-shadow: 0 2px 8px #0002;
         }
@@ -229,17 +319,17 @@
         .read-more-btn { margin-top: 18px; background: #1565c0; }
         .read-more-btn:hover { background: #0a3977;}
         .edu-list { margin-top: 6px;}
-        @media (max-width: 600px) {
-            section, .profile { padding: 18px 8px;}
-            nav { gap: 14px; font-size: 14px;}
-            .profile-title { font-size: 1.25em;}
-            .profile-subtitle { font-size: 0.95em; padding: 5px 12px;}
-            .project-img { max-width: 98vw; }
-            .circle-btn, .circle-skill-btn { width: 48px; height: 48px; font-size: 12px; min-width: 48px; min-height: 48px;}
-            .circle-links-bg { padding: 18px 0;}
-            .circle-links-bg.bottom-circles { padding: 10px 0;}
-        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var flipContainer = document.querySelector('.profile-flip-container');
+            if(flipContainer){
+                flipContainer.addEventListener('click', function() {
+                    flipContainer.classList.toggle('flipped');
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -253,11 +343,33 @@
             <a href="#resume">Resume</a>
         </nav>
     </header>
-    <div class="profile">
-        <div class="profile-bg-decor"></div>
-        <div class="profile-bg-decor2"></div>
-        <div class="profile-title">AAMIR HUSSAIN</div>
-        <div class="profile-subtitle">DIGITAL MARKETING SPECIALIST</div>
+    <!-- Flip Card Profile Section -->
+    <div class="profile-flip-container" title="Click to flip and see skills">
+        <div class="profile-flip-card">
+            <!-- Front Side -->
+            <div class="profile-front">
+                <div class="profile-title">AAMIR HUSSAIN</div>
+                <div class="profile-subtitle">DIGITAL MARKETING SPECIALIST</div>
+                <div class="profile-flip-hint">Click to see my skills</div>
+            </div>
+            <!-- Back Side -->
+            <div class="profile-back">
+                <div class="profile-back-title">TECHNICAL SKILLS</div>
+                <div class="profile-back-skills">
+                    <span class="profile-back-skill-btn">Meta Ads</span>
+                    <span class="profile-back-skill-btn">Google Ads</span>
+                    <span class="profile-back-skill-btn">Facebook Business Manager</span>
+                    <span class="profile-back-skill-btn">Facebook</span>
+                    <span class="profile-back-skill-btn">Instagram</span>
+                    <span class="profile-back-skill-btn">TikTok</span>
+                    <span class="profile-back-skill-btn">LinkedIn</span>
+                    <span class="profile-back-skill-btn">Google Analytics</span>
+                    <span class="profile-back-skill-btn">MS Excel</span>
+                    <span class="profile-back-skill-btn">WordPress</span>
+                    <span class="profile-back-skill-btn">Meta Insights</span>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Circle links below profile -->
     <div class="circle-links-bg bottom-circles">
