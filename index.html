@@ -11,14 +11,12 @@
             margin: 0;
             padding: 0;
             color: #222;
-            /* Gradient + geometric SVG shapes + soft overlay */
             background:
                 linear-gradient(120deg, #e3f2fd 65%, #fff 100%),
                 url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
             position: relative;
         }
         body::before {
-            /* Add floating circles for soft, elegant effect */
             content: "";
             position: fixed;
             top: 0;
@@ -34,12 +32,10 @@
                 radial-gradient(circle at 75% 60%, #90caf9 0%, transparent 70%) 0 0/600px 320px no-repeat;
             opacity: 0.25;
         }
-        /* Keep header/nav above background */
         header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center; position: relative; z-index: 1;}
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
         nav a:hover { text-decoration: underline;}
-        /* Flip Card Styles - flip right */
         .profile-flip-container {
             perspective: 1000px;
             width: 440px;
@@ -205,7 +201,6 @@
             .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
             .profile-front .bg-shape1, .profile-front .bg-shape2 { display: none; }
         }
-        /* Circle Links Styling */
         .circle-links-bg {
             background: linear-gradient(120deg, #1565c0 50%, #42a5f5 100%);
             padding: 32px 0;
@@ -272,7 +267,6 @@
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
         ul, li { margin: 0; padding: 0;}
         li { margin-bottom: 8px;}
-        /* About section background design */
         #about {
             background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
             position: relative;
@@ -371,6 +365,33 @@
         .read-more-btn { margin-top: 18px; background: #1565c0; }
         .read-more-btn:hover { background: #0a3977;}
         .edu-list { margin-top: 6px;}
+        /* Portfolio + Name left align line styling */
+        .portfolio-header-line {
+            display: flex;
+            align-items: center;
+            font-size: 1.15em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            margin-top: -8px;
+            gap: 18px;
+        }
+        .portfolio-header-name {
+            font-weight: bold;
+            color: #1565c0;
+            font-size: 1.09em;
+            letter-spacing: 1px;
+            margin-right: 10px;
+        }
+        .portfolio-header-title {
+            font-weight: bold;
+            color: #222;
+            font-size: 1.09em;
+        }
+        @media (max-width: 600px) {
+            .portfolio-header-line { font-size: 1em; gap: 9px;}
+            .portfolio-header-name { font-size: 1em;}
+            .portfolio-header-title { font-size: 1em;}
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -450,6 +471,11 @@
                 <span>Project</span>
             </a>
         </div>
+    </div>
+    <!-- Portfolio header line [LEFT: Name, CENTER: Portfolio, RIGHT: nothing; stays above about, internship, certificates, education, resume sections] -->
+    <div class="portfolio-header-line">
+        <span class="portfolio-header-name"><b>AAMIR HUSSAIN</b></span>
+        <span class="portfolio-header-title"><b>Portfolio</b></span>
     </div>
     <section id="about">
         <h3>About</h3>
