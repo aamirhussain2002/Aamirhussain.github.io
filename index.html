@@ -69,43 +69,100 @@
         .profile {
             background: #fff; box-shadow: 0 2px 8px #0001; margin: 24px auto 0 auto; max-width: 480px; border-radius: 12px; padding: 32px 24px; text-align: center;
         }
-        .profile-img { 
-            width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid #1565c0; margin-bottom: 16px; box-shadow: 0 2px 8px #0002;
-        }
         .profile h1 { font-size: 2.2em; margin-bottom: 6px;}
         .profile h2 { font-size: 1.25em; color: #1565c0; margin-bottom: 16px;}
+        /* Remove profile-img style (image removed) */
         section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px;}
         section:not(:first-of-type) { margin-top: 24px;}
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
         ul, li { margin: 0; padding: 0;}
         li { margin-bottom: 8px;}
-        .skill-btns { display: flex; flex-wrap: wrap; gap: 14px; margin: 10px 0 0 0;}
-        .skill-btn { 
+        /* About section background design */
+        #about {
+            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #about:before {
+            content: "";
+            position: absolute;
+            top: -40px; left: -60px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #1565c0 38%, transparent 80%);
+            opacity: 0.15;
+            z-index: 0;
+        }
+        #about:after {
+            content: "";
+            position: absolute;
+            bottom: -60px; right: -100px;
+            width: 240px; height: 140px;
+            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
+            opacity: 0.11;
+            z-index: 0;
+        }
+        #about > * { position: relative; z-index: 1; }
+
+        /* Custom skills section */
+        .skills-section { margin-top: 32px; }
+        .skills-heading { font-size: 1.5em; color: #1565c0; margin-bottom: 4px;}
+        .skills-subheading { font-size: 1.15em; color: #1a237e; margin-bottom: 12px; margin-top: 22px;}
+        .circle-skill-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;}
+        .circle-skill-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 62px;
+            min-height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, #42a5f5 60%, #1565c0 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 0;
+            box-shadow: 0 2px 8px #42a5f566;
+            border: 2px solid #fff;
+            transition: 0.2s;
+            text-align: center;
+            padding: 0 10px;
+            cursor: default;
+        }
+        .circle-skill-btn:hover { filter: brightness(0.94); transform: scale(1.07);}
+        .skill-horizontal-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px;}
+        .skill-horizontal-btn {
             background: linear-gradient(90deg,#1565c0,#42a5f5); color: #fff; border: none; padding: 9px 18px; border-radius: 18px; font-weight: 500; font-size: 15px; cursor: default;
             box-shadow: 0 2px 6px #0001; transition: 0.2s;
         }
-        .skill-btn:hover { filter: brightness(0.98); transform: scale(1.08);}
-        .cert-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;}
-        .cert-btn { 
-            background: linear-gradient(90deg,#469d49,#a5d6a7); color: #fff; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 500; font-size: 14px; cursor: pointer;
-            box-shadow: 0 2px 6px #0001; transition: 0.2s;
-        }
-        .cert-btn:hover { filter: brightness(0.91); transform: scale(1.05);}
-        .cert-detail { margin-bottom: 10px; color: #444; font-size: 15px; margin-left: 10px;}
-        .resume-btn { margin-top: 24px; display: flex; justify-content: center;}
-        .resume-btn a { background: #469d49; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1.07em; font-weight: 600;}
-        .resume-btn a:hover { background: #287d29;}
+        .skill-horizontal-btn:hover { filter: brightness(0.97); transform: scale(1.08);}
+        /* old skill-btns hidden */
+        .skill-btns { display:none; }
+        /* Project section style */
         .project-img {
             width: 100%; max-width: 380px; display: block; margin: 0 auto 20px auto; border-radius: 12px; box-shadow: 0 2px 8px #0002;
         }
+        .resume-btn {
+            margin-top: 24px; display: flex; justify-content: center;
+        }
+        .resume-btn a, .read-more-btn {
+            background: #469d49; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1.07em; font-weight: 600; display: inline-block;
+        }
+        .resume-btn a:hover, .read-more-btn:hover { background: #287d29;}
+        .read-more-btn { margin-top: 18px; background: #1565c0; }
+        .read-more-btn:hover { background: #0a3977;}
         .edu-list { margin-top: 6px;}
+        /* Circle links below profile */
+        .circle-links-bg.bottom-circles {
+            margin-top: 0;
+        }
         @media (max-width: 600px) {
             section, .profile { padding: 18px 8px;}
             nav { gap: 14px; font-size: 14px;}
-            .profile-img { width: 80px; height: 80px;}
+            .profile h1 { font-size: 1.35em;}
+            .profile h2 { font-size: 1em;}
             .project-img { max-width: 98vw; }
-            .circle-btn { width: 48px; height: 48px; font-size: 12px;}
+            .circle-btn, .circle-skill-btn { width: 48px; height: 48px; font-size: 12px; min-width: 48px; min-height: 48px;}
             .circle-links-bg { padding: 18px 0;}
+            .circle-links-bg.bottom-circles { padding: 10px 0;}
         }
     </style>
 </head>
@@ -121,7 +178,12 @@
             <a href="#resume">Resume</a>
         </nav>
     </header>
-    <div class="circle-links-bg">
+    <div class="profile">
+        <h1>Aamir Hussain</h1>
+        <h2>Digital Marketing Specialist</h2>
+    </div>
+    <!-- Circle links moved below profile -->
+    <div class="circle-links-bg bottom-circles">
         <div class="circle-links">
             <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
                 <span>Email</span>
@@ -146,33 +208,33 @@
             </a>
         </div>
     </div>
-    <div class="profile">
-        <img src="profile.jpg" alt="Aamir Hussain Photo" class="profile-img">
-        <h1>Aamir Hussain</h1>
-        <h2>Digital Marketing Specialist</h2>
-    </div>
     <section id="about">
         <h3>About</h3>
         <p>
             I am a Digital Marketing Specialist focused on Google Ads, Meta Ads, and social media campaigns. I create content for web and social platforms, using data to improve performance and reach the right audience. My content aligns with brand strategy and user intent. Alongside my marketing career, I am undergoing clinical training in optometry. My goal is to lead digital campaigns that deliver real business value.
         </p>
     </section>
-    <section id="skills">
-        <h3>Skills</h3>
-        <div class="skill-btns">
-            <span class="skill-btn">Google Ads</span>
-            <span class="skill-btn">Meta Ads</span>
-            <span class="skill-btn">Facebook Business Manager</span>
-            <span class="skill-btn">Facebook</span>
-            <span class="skill-btn">Instagram</span>
-            <span class="skill-btn">LinkedIn</span>
-            <span class="skill-btn">Content Strategy</span>
-            <span class="skill-btn">Campaign Planning</span>
-            <span class="skill-btn">Google Analytics</span>
-            <span class="skill-btn">Meta Insights</span>
-            <span class="skill-btn">Audience Insights</span>
-            <span class="skill-btn">Performance Analysis</span>
-            <span class="skill-btn">Competitor SWOT Analysis</span>
+    <section id="skills" class="skills-section">
+        <div class="skills-heading">TECHNICAL Skills</div>
+        <div class="skills-subheading">DIGITAL MARKETING TOOLS</div>
+        <div class="circle-skill-row">
+            <div class="circle-skill-btn">Meta Ads</div>
+            <div class="circle-skill-btn">Google Ads</div>
+            <div class="circle-skill-btn">Facebook Business Manager</div>
+        </div>
+        <div class="skills-subheading">SOCIAL MEDIA PLATFORM</div>
+        <div class="skill-horizontal-row">
+            <div class="skill-horizontal-btn">Facebook</div>
+            <div class="skill-horizontal-btn">Instagram</div>
+            <div class="skill-horizontal-btn">TikTok</div>
+            <div class="skill-horizontal-btn">LinkedIn</div>
+        </div>
+        <div class="skills-subheading">STRATEGY AND ANALYSIS</div>
+        <div class="skill-horizontal-row">
+            <div class="skill-horizontal-btn">Google Analytics</div>
+            <div class="skill-horizontal-btn">MS Excel</div>
+            <div class="skill-horizontal-btn">WordPress</div>
+            <div class="skill-horizontal-btn">Meta Insights</div>
         </div>
     </section>
     <section id="projects">
@@ -192,7 +254,7 @@
             </li>
         </ul>
         <div class="resume-btn">
-            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">View Portfolio</a>
+            <a class="read-more-btn" href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">Read More</a>
         </div>
     </section>
     <section id="internship">
