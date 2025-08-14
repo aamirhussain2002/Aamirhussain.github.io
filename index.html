@@ -10,6 +10,56 @@
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
         nav a:hover { text-decoration: underline;}
+        /* 3D Name Styling */
+        .profile {
+            background: #fff; 
+            box-shadow: 0 2px 8px #0001; 
+            margin: 24px auto 0 auto; 
+            max-width: 480px; 
+            border-radius: 12px; 
+            padding: 32px 24px 24px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .profile-title {
+            font-size: 2.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1565c0;
+            text-shadow: 2px 2px 0 #42a5f5, 4px 4px 12px #1565c088;
+            margin-bottom: 5px;
+        }
+        .profile-subtitle {
+            font-size: 1.25em;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(90deg, #1a237e 55%, #42a5f5 100%);
+            box-shadow: 0 2px 18px #1565c055;
+            text-shadow: 1px 1px 5px #1565c0;
+            border-radius: 8px;
+            padding: 6px 18px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .profile-bg-decor {
+            position: absolute;
+            top: -50px; left: -80px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #42a5f5 48%, transparent 80%);
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .profile-bg-decor2 {
+            position: absolute;
+            bottom: -60px; right: -100px;
+            width: 240px; height: 140px;
+            background: radial-gradient(circle, #1565c0 32%, transparent 80%);
+            opacity: 0.13;
+            z-index: 0;
+        }
+        /* Circle Links Styling */
         .circle-links-bg {
             background: linear-gradient(120deg, #1565c0 50%, #42a5f5 100%);
             padding: 32px 0;
@@ -17,6 +67,9 @@
             box-shadow: 0 4px 24px #1565c022;
             margin-bottom: 40px;
             margin-top: 24px;
+        }
+        .circle-links-bg.bottom-circles {
+            margin-top: 0;
         }
         .circle-links {
             display: flex;
@@ -56,7 +109,7 @@
         .circle-btn.phone,
         .circle-btn.location,
         .circle-btn.resume,
-        .circle-btn.portfolio {
+        .circle-btn.project {
             background: linear-gradient(120deg, #1a237e 40%, #42a5f5 100%);
             color: #fff;
         }
@@ -66,12 +119,7 @@
             box-shadow: 0 6px 25px #42a5f5aa;
             z-index: 1;
         }
-        .profile {
-            background: #fff; box-shadow: 0 2px 8px #0001; margin: 24px auto 0 auto; max-width: 480px; border-radius: 12px; padding: 32px 24px; text-align: center;
-        }
-        .profile h1 { font-size: 2.2em; margin-bottom: 6px;}
-        .profile h2 { font-size: 1.25em; color: #1565c0; margin-bottom: 16px;}
-        /* Remove profile-img style (image removed) */
+        /* Section Styling */
         section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px;}
         section:not(:first-of-type) { margin-top: 24px;}
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
@@ -104,8 +152,39 @@
         #about > * { position: relative; z-index: 1; }
 
         /* Custom skills section */
-        .skills-section { margin-top: 32px; }
-        .skills-heading { font-size: 1.5em; color: #1565c0; margin-bottom: 4px;}
+        #skills {
+            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #skills:before {
+            content: "";
+            position: absolute;
+            top: -40px; left: -70px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
+            opacity: 0.18;
+            z-index: 0;
+        }
+        #skills:after {
+            content: "";
+            position: absolute;
+            bottom: -50px; right: -80px;
+            width: 200px; height: 120px;
+            background: radial-gradient(circle, #1565c0 32%, transparent 80%);
+            opacity: 0.13;
+            z-index: 0;
+        }
+        #skills > * { position: relative; z-index: 1; }
+
+        .skills-heading {
+            font-size: 1.5em;
+            color: #1565c0;
+            margin-bottom: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
         .skills-subheading { font-size: 1.15em; color: #1a237e; margin-bottom: 12px; margin-top: 22px;}
         .circle-skill-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;}
         .circle-skill-btn {
@@ -150,15 +229,11 @@
         .read-more-btn { margin-top: 18px; background: #1565c0; }
         .read-more-btn:hover { background: #0a3977;}
         .edu-list { margin-top: 6px;}
-        /* Circle links below profile */
-        .circle-links-bg.bottom-circles {
-            margin-top: 0;
-        }
         @media (max-width: 600px) {
             section, .profile { padding: 18px 8px;}
             nav { gap: 14px; font-size: 14px;}
-            .profile h1 { font-size: 1.35em;}
-            .profile h2 { font-size: 1em;}
+            .profile-title { font-size: 1.25em;}
+            .profile-subtitle { font-size: 0.95em; padding: 5px 12px;}
             .project-img { max-width: 98vw; }
             .circle-btn, .circle-skill-btn { width: 48px; height: 48px; font-size: 12px; min-width: 48px; min-height: 48px;}
             .circle-links-bg { padding: 18px 0;}
@@ -179,10 +254,12 @@
         </nav>
     </header>
     <div class="profile">
-        <h1>Aamir Hussain</h1>
-        <h2>Digital Marketing Specialist</h2>
+        <div class="profile-bg-decor"></div>
+        <div class="profile-bg-decor2"></div>
+        <div class="profile-title">AAMIR HUSSAIN</div>
+        <div class="profile-subtitle">DIGITAL MARKETING SPECIALIST</div>
     </div>
-    <!-- Circle links moved below profile -->
+    <!-- Circle links below profile -->
     <div class="circle-links-bg bottom-circles">
         <div class="circle-links">
             <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
@@ -203,8 +280,8 @@
             <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank" class="circle-btn resume">
                 <span>Resume</span>
             </a>
-            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank" class="circle-btn portfolio">
-                <span>Portfolio</span>
+            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank" class="circle-btn project">
+                <span>Project</span>
             </a>
         </div>
     </div>
@@ -215,7 +292,7 @@
         </p>
     </section>
     <section id="skills" class="skills-section">
-        <div class="skills-heading">TECHNICAL Skills</div>
+        <div class="skills-heading"><b>TECHNICAL SKILLS</b></div>
         <div class="skills-subheading">DIGITAL MARKETING TOOLS</div>
         <div class="circle-skill-row">
             <div class="circle-skill-btn">Meta Ads</div>
@@ -223,18 +300,18 @@
             <div class="circle-skill-btn">Facebook Business Manager</div>
         </div>
         <div class="skills-subheading">SOCIAL MEDIA PLATFORM</div>
-        <div class="skill-horizontal-row">
-            <div class="skill-horizontal-btn">Facebook</div>
-            <div class="skill-horizontal-btn">Instagram</div>
-            <div class="skill-horizontal-btn">TikTok</div>
-            <div class="skill-horizontal-btn">LinkedIn</div>
+        <div class="circle-skill-row">
+            <div class="circle-skill-btn">Facebook</div>
+            <div class="circle-skill-btn">Instagram</div>
+            <div class="circle-skill-btn">TikTok</div>
+            <div class="circle-skill-btn">LinkedIn</div>
         </div>
         <div class="skills-subheading">STRATEGY AND ANALYSIS</div>
-        <div class="skill-horizontal-row">
-            <div class="skill-horizontal-btn">Google Analytics</div>
-            <div class="skill-horizontal-btn">MS Excel</div>
-            <div class="skill-horizontal-btn">WordPress</div>
-            <div class="skill-horizontal-btn">Meta Insights</div>
+        <div class="circle-skill-row">
+            <div class="circle-skill-btn">Google Analytics</div>
+            <div class="circle-skill-btn">MS Excel</div>
+            <div class="circle-skill-btn">WordPress</div>
+            <div class="circle-skill-btn">Meta Insights</div>
         </div>
     </section>
     <section id="projects">
