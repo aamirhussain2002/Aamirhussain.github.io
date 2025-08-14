@@ -11,14 +11,12 @@
             margin: 0;
             padding: 0;
             color: #222;
-            /* Gradient + geometric SVG shapes + soft overlay */
             background:
                 linear-gradient(120deg, #e3f2fd 65%, #fff 100%),
                 url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
             position: relative;
         }
         body::before {
-            /* Add floating circles for soft, elegant effect */
             content: "";
             position: fixed;
             top: 0;
@@ -34,7 +32,6 @@
                 radial-gradient(circle at 75% 60%, #90caf9 0%, transparent 70%) 0 0/600px 320px no-repeat;
             opacity: 0.25;
         }
-        /* Keep header/nav above background */
         header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center; position: relative; z-index: 1;}
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
@@ -196,6 +193,55 @@
             transition: 0.15s;
         }
         .profile-back-skill-btn:hover { filter: brightness(0.93); transform: scale(1.06);}
+        /* 3D Meta & Google Ads side badges */
+        .profile-front .profile-side-ads {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex; align-items: center;
+            font-weight: bold;
+            font-size: 1.08em;
+            letter-spacing: 1px;
+            z-index: 2;
+            filter: drop-shadow(0 2px 8px #1565c033);
+            border-radius: 32px;
+            padding: 8px 20px;
+            background: linear-gradient(120deg, #fff 40%, #e3f2fd 100%);
+            box-shadow: 0 2px 10px #42a5f533;
+            border: 2.5px solid #1565c0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .profile-front .profile-side-ads .ads-icon {
+            margin: 0 9px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        .profile-front .profile-side-ads .ads-text {
+            font-weight: bold;
+            font-size: 1.11em;
+            letter-spacing: 2px;
+            color: #1565c0;
+            text-shadow: 1px 1px 6px #fff8;
+        }
+        .profile-front .google-ads {
+            left: -30px;
+            background: linear-gradient(120deg, #1565c0 35%, #fff 100%);
+            color: #fff;
+            border: 2.5px solid #42a5f5;
+        }
+        .profile-front .meta-ads {
+            right: -30px;
+            flex-direction: row-reverse;
+            background: linear-gradient(120deg, #42a5f5 48%, #fff 100%);
+            color: #fff;
+            border: 2.5px solid #1565c0;
+        }
+        .profile-front .meta-ads .ads-icon { margin: 0 0 0 9px; }
+        .profile-front .profile-side-ads:hover {
+            transform: translateY(-50%) scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 18px #42a5f5aa;
+            background: linear-gradient(120deg, #bbdefb 40%, #fff 100%);
+        }
         @media (max-width: 600px) {
             .profile-flip-container { width: 98vw; }
             .profile-flip-card, .profile-front, .profile-back { height: 135px; }
@@ -204,6 +250,13 @@
             .profile-back-title { font-size: 0.98em;}
             .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
             .profile-front .bg-shape1, .profile-front .bg-shape2 { display: none; }
+            .profile-front .profile-side-ads {
+                font-size: 0.85em;
+                padding: 5px 7px;
+            }
+            .profile-front .google-ads { left: -4px; }
+            .profile-front .meta-ads { right: -4px; }
+            .profile-front .ads-icon svg { height: 24px !important; width: 24px !important; }
         }
         /* Circle Links Styling */
         .circle-links-bg {
@@ -272,7 +325,6 @@
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
         ul, li { margin: 0; padding: 0;}
         li { margin-bottom: 8px;}
-        /* About section background design */
         #about {
             background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
             position: relative;
@@ -400,6 +452,30 @@
         <div class="profile-flip-card">
             <!-- Front Side -->
             <div class="profile-front">
+                <!-- 3D GOOGLE ADS Left -->
+                <div class="profile-side-ads google-ads">
+                    <span class="ads-icon">
+                        <!-- Google Ads SVG Icon -->
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <circle cx="18" cy="18" r="15" fill="#1565c0"/>
+                            <circle cx="13" cy="24" r="4.5" fill="#fbbc05"/>
+                            <rect x="17" y="11" width="5" height="14" rx="2.5" fill="#34a853" transform="rotate(-18 19.5 18)"/>
+                            <rect x="24" y="11.5" width="5" height="14" rx="2.5" fill="#4285f4" transform="rotate(18 26.5 18.5)"/>
+                        </svg>
+                    </span>
+                    <span class="ads-text">GOOGLE ADS</span>
+                </div>
+                <!-- 3D META ADS Right -->
+                <div class="profile-side-ads meta-ads">
+                    <span class="ads-icon">
+                        <!-- Meta SVG Icon -->
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <ellipse cx="18" cy="18" rx="15" ry="15" fill="#42a5f5"/>
+                            <path d="M26.5 24c-1.7 0-3.1-1.1-4.3-3.1-1.2-1.9-2.3-3.9-3.2-6-1.2 2.1-2.2 4.1-3.2 6-1.2 2-2.6 3.1-4.3 3.1-2.5 0-4.5-1.8-4.5-4.7 0-3 2-5.7 5.2-5.7 2.4 0 3.9 1.7 4.7 3.2 0.8-1.5 2.3-3.2 4.7-3.2 3.2 0 5.2 2.7 5.2 5.7 0.1 2.8-1.9 4.7-4.5 4.7z" fill="#fff"/>
+                        </svg>
+                    </span>
+                    <span class="ads-text">META ADS</span>
+                </div>
                 <div class="bg-shape1"></div>
                 <div class="bg-shape2"></div>
                 <div class="profile-title">AAMIR HUSSAIN</div>
