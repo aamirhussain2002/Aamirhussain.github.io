@@ -39,8 +39,8 @@
         /* Flip Card Styles - flip right */
         .profile-flip-container {
             perspective: 1000px;
-            width: 440px;
-            max-width: 96vw;
+            width: 600px;
+            max-width: 98vw;
             margin: 28px auto 0 auto;
             z-index: 2;
             position: relative;
@@ -63,97 +63,9 @@
             backface-visibility: hidden;
             border-radius: 20px;
             box-shadow: 0 4px 18px #1565c033;
-        }
-        .profile-front {
             background:
                 linear-gradient(120deg, #e3f2fd 60%, #fff 120%),
                 url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-front::before {
-            content: "";
-            position: absolute;
-            top: -30px; left: -60px;
-            width: 160px; height: 160px;
-            background: radial-gradient(circle, #1565c0 48%, transparent 80%);
-            opacity: 0.18;
-            z-index: 0;
-        }
-        .profile-front::after {
-            content: "";
-            position: absolute;
-            bottom: -40px; right: -80px;
-            width: 180px; height: 120px;
-            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
-            opacity: 0.13;
-            z-index: 0;
-        }
-        .profile-front .bg-shape1 {
-            position: absolute;
-            top: 40px; left: 40px;
-            width: 54px; height: 54px;
-            background: linear-gradient(120deg, #42a5f5 20%, #fff 90%);
-            border-radius: 50%;
-            opacity: 0.25;
-            z-index: 0;
-        }
-        .profile-front .bg-shape2 {
-            position: absolute;
-            bottom: 10px; right: 60px;
-            width: 38px; height: 38px;
-            background: linear-gradient(120deg, #1565c0 20%, #fff 90%);
-            border-radius: 50%;
-            opacity: 0.22;
-            z-index: 0;
-        }
-        .profile-title {
-            font-size: 2.4em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #1565c0;
-            text-shadow:
-                1px 1px 0 #42a5f5,
-                2px 2px 0 #42a5f5,
-                4px 4px 12px #1565c088;
-            margin-bottom: 5px;
-            z-index: 1;
-            position: relative;
-        }
-        .profile-subtitle {
-            font-size: 1.25em;
-            color: #fff;
-            font-weight: bold;
-            background: linear-gradient(90deg, #1a237e 55%, #42a5f5 100%);
-            box-shadow: 0 2px 18px #1565c055;
-            text-shadow: 1px 1px 5px #1565c0;
-            border-radius: 8px;
-            padding: 6px 18px;
-            display: inline-block;
-            margin-bottom: 15px;
-            z-index: 1;
-            position: relative;
-        }
-        .profile-flip-hint {
-            color: #287d29;
-            background: #e3f2fd;
-            border-radius: 7px;
-            font-size: 13px;
-            padding: 2px 14px;
-            margin-top: 6px;
-            box-shadow: 0 1px 4px #469d4922;
-            z-index: 2;
-            position: relative;
-            font-weight: 500;
-            transition: background 0.22s;
-        }
-        .profile-flip-hint:hover {
-            background: #c8e6c9;
         }
         .profile-back {
             background:
@@ -194,10 +106,18 @@
         }
         .profile-back-skill-btn:hover { filter: brightness(0.93); transform: scale(1.06);}
         /* 3D Meta & Google Ads side badges */
+        .profile-front .profile-title-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
         .profile-front .profile-side-ads {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex; align-items: center;
             font-weight: bold;
             font-size: 1.08em;
@@ -210,6 +130,8 @@
             box-shadow: 0 2px 10px #42a5f533;
             border: 2.5px solid #1565c0;
             transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 150px;
+            justify-content: center;
         }
         .profile-front .profile-side-ads .ads-icon {
             margin: 0 9px 0 0;
@@ -224,38 +146,101 @@
             text-shadow: 1px 1px 6px #fff8;
         }
         .profile-front .google-ads {
-            left: -30px;
+            margin-right: 18px;
             background: linear-gradient(120deg, #1565c0 35%, #fff 100%);
             color: #fff;
             border: 2.5px solid #42a5f5;
         }
         .profile-front .meta-ads {
-            right: -30px;
-            flex-direction: row-reverse;
+            margin-left: 18px;
             background: linear-gradient(120deg, #42a5f5 48%, #fff 100%);
             color: #fff;
             border: 2.5px solid #1565c0;
         }
         .profile-front .meta-ads .ads-icon { margin: 0 0 0 9px; }
         .profile-front .profile-side-ads:hover {
-            transform: translateY(-50%) scale(1.08) rotate(-2deg);
+            transform: scale(1.08) rotate(-2deg);
             box-shadow: 0 8px 18px #42a5f5aa;
             background: linear-gradient(120deg, #bbdefb 40%, #fff 100%);
+        }
+        .profile-title {
+            font-size: 2.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1565c0;
+            text-shadow:
+                1px 1px 0 #42a5f5,
+                2px 2px 0 #42a5f5,
+                4px 4px 12px #1565c088;
+            z-index: 1;
+            position: relative;
+            background: none;
+            margin: 0 12px;
+        }
+        .profile-front .profile-subtitle {
+            font-size: 1.25em;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(90deg, #1a237e 55%, #42a5f5 100%);
+            box-shadow: 0 2px 18px #1565c055;
+            text-shadow: 1px 1px 5px #1565c0;
+            border-radius: 8px;
+            padding: 6px 18px;
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            z-index: 1;
+            position: relative;
+        }
+        .profile-flip-hint {
+            color: #287d29;
+            background: #e3f2fd;
+            border-radius: 7px;
+            font-size: 13px;
+            padding: 2px 14px;
+            margin-top: 6px;
+            box-shadow: 0 1px 4px #469d4922;
+            z-index: 2;
+            position: relative;
+            font-weight: 500;
+            transition: background 0.22s;
+        }
+        .profile-flip-hint:hover {
+            background: #c8e6c9;
+        }
+        .profile-front .bg-shape1 {
+            position: absolute;
+            top: 40px; left: 40px;
+            width: 54px; height: 54px;
+            background: linear-gradient(120deg, #42a5f5 20%, #fff 90%);
+            border-radius: 50%;
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .profile-front .bg-shape2 {
+            position: absolute;
+            bottom: 10px; right: 60px;
+            width: 38px; height: 38px;
+            background: linear-gradient(120deg, #1565c0 20%, #fff 90%);
+            border-radius: 50%;
+            opacity: 0.22;
+            z-index: 0;
         }
         @media (max-width: 600px) {
             .profile-flip-container { width: 98vw; }
             .profile-flip-card, .profile-front, .profile-back { height: 135px; }
-            .profile-title { font-size: 1.3em; }
-            .profile-subtitle { font-size: 1em; padding: 5px 12px;}
-            .profile-back-title { font-size: 0.98em;}
-            .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
-            .profile-front .bg-shape1, .profile-front .bg-shape2 { display: none; }
-            .profile-front .profile-side-ads {
-                font-size: 0.85em;
+            .profile-front .profile-title-row { flex-direction: column; margin-top: 12px; }
+            .profile-title { font-size: 1.3em; margin: 0 0 6px 0;}
+            .profile-front .profile-side-ads { 
+                font-size: 0.85em; 
                 padding: 5px 7px;
+                min-width: 100px;
+                margin-right: 0;
+                margin-left: 0;
             }
-            .profile-front .google-ads { left: -4px; }
-            .profile-front .meta-ads { right: -4px; }
+            .profile-front .google-ads { margin-bottom: 8px; }
+            .profile-front .meta-ads { margin-top: 8px; }
             .profile-front .ads-icon svg { height: 24px !important; width: 24px !important; }
         }
         /* Circle Links Styling */
@@ -452,33 +437,35 @@
         <div class="profile-flip-card">
             <!-- Front Side -->
             <div class="profile-front">
-                <!-- 3D GOOGLE ADS Left -->
-                <div class="profile-side-ads google-ads">
-                    <span class="ads-icon">
-                        <!-- Google Ads SVG Icon -->
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                            <circle cx="18" cy="18" r="15" fill="#1565c0"/>
-                            <circle cx="13" cy="24" r="4.5" fill="#fbbc05"/>
-                            <rect x="17" y="11" width="5" height="14" rx="2.5" fill="#34a853" transform="rotate(-18 19.5 18)"/>
-                            <rect x="24" y="11.5" width="5" height="14" rx="2.5" fill="#4285f4" transform="rotate(18 26.5 18.5)"/>
-                        </svg>
-                    </span>
-                    <span class="ads-text">GOOGLE ADS</span>
-                </div>
-                <!-- 3D META ADS Right -->
-                <div class="profile-side-ads meta-ads">
-                    <span class="ads-icon">
-                        <!-- Meta SVG Icon -->
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                            <ellipse cx="18" cy="18" rx="15" ry="15" fill="#42a5f5"/>
-                            <path d="M26.5 24c-1.7 0-3.1-1.1-4.3-3.1-1.2-1.9-2.3-3.9-3.2-6-1.2 2.1-2.2 4.1-3.2 6-1.2 2-2.6 3.1-4.3 3.1-2.5 0-4.5-1.8-4.5-4.7 0-3 2-5.7 5.2-5.7 2.4 0 3.9 1.7 4.7 3.2 0.8-1.5 2.3-3.2 4.7-3.2 3.2 0 5.2 2.7 5.2 5.7 0.1 2.8-1.9 4.7-4.5 4.7z" fill="#fff"/>
-                        </svg>
-                    </span>
-                    <span class="ads-text">META ADS</span>
-                </div>
                 <div class="bg-shape1"></div>
                 <div class="bg-shape2"></div>
-                <div class="profile-title">AAMIR HUSSAIN</div>
+                <div class="profile-title-row">
+                    <!-- GOOGLE ADS Left -->
+                    <div class="profile-side-ads google-ads">
+                        <span class="ads-icon">
+                            <!-- Google Ads SVG Icon -->
+                            <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                                <circle cx="18" cy="18" r="15" fill="#1565c0"/>
+                                <circle cx="13" cy="24" r="4.5" fill="#fbbc05"/>
+                                <rect x="17" y="11" width="5" height="14" rx="2.5" fill="#34a853" transform="rotate(-18 19.5 18)"/>
+                                <rect x="24" y="11.5" width="5" height="14" rx="2.5" fill="#4285f4" transform="rotate(18 26.5 18.5)"/>
+                            </svg>
+                        </span>
+                        <span class="ads-text">GOOGLE ADS</span>
+                    </div>
+                    <div class="profile-title">AAMIR HUSSAIN</div>
+                    <!-- META ADS Right -->
+                    <div class="profile-side-ads meta-ads">
+                        <span class="ads-icon">
+                            <!-- Meta SVG Icon -->
+                            <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                                <ellipse cx="18" cy="18" rx="15" ry="15" fill="#42a5f5"/>
+                                <path d="M26.5 24c-1.7 0-3.1-1.1-4.3-3.1-1.2-1.9-2.3-3.9-3.2-6-1.2 2.1-2.2 4.1-3.2 6-1.2 2-2.6 3.1-4.3 3.1-2.5 0-4.5-1.8-4.5-4.7 0-3 2-5.7 5.2-5.7 2.4 0 3.9 1.7 4.7 3.2 0.8-1.5 2.3-3.2 4.7-3.2 3.2 0 5.2 2.7 5.2 5.7 0.1 2.8-1.9 4.7-4.5 4.7z" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span class="ads-text">META ADS</span>
+                    </div>
+                </div>
                 <div class="profile-subtitle">DIGITAL MARKETING SPECIALIST</div>
                 <div class="profile-flip-hint">Click to see my skills</div>
             </div>
