@@ -1,405 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Aamir Hussain | Digital Marketing Specialist</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* Beautiful overall website background */
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #222;
-            /* Gradient + geometric SVG shapes + soft overlay */
-            background:
-                linear-gradient(120deg, #e3f2fd 65%, #fff 100%),
-                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
-            position: relative;
-        }
-        body::before {
-            /* Add floating circles for soft, elegant effect */
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            background:
-                radial-gradient(circle at 12% 20%, #42a5f5 0%, transparent 65%) 0 0/800px 540px no-repeat,
-                radial-gradient(circle at 88% 80%, #1565c0 0%, transparent 70%) 0 0/900px 540px no-repeat,
-                radial-gradient(circle at 55% 15%, #bbdefb 0%, transparent 70%) 0 0/600px 340px no-repeat,
-                radial-gradient(circle at 75% 60%, #90caf9 0%, transparent 70%) 0 0/600px 320px no-repeat;
-            opacity: 0.25;
-        }
-        /* Keep header/nav above background */
-        header { background: #1565c0; color: #fff; padding: 32px 0 16px 0; text-align: center; position: relative; z-index: 1;}
-        nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
-        nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
-        nav a:hover { text-decoration: underline;}
-        /* Flip Card Styles - flip right */
-        .profile-flip-container {
-            perspective: 1000px;
-            width: 440px;
-            max-width: 96vw;
-            margin: 28px auto 0 auto;
-            z-index: 2;
-            position: relative;
-        }
-        .profile-flip-card {
-            width: 100%;
-            height: 170px;
-            position: relative;
-            transition: transform 0.8s cubic-bezier(.23,.41,.47,.99);
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-        .profile-flip-container.flipped .profile-flip-card {
-            transform: rotateY(-180deg);
-        }
-        .profile-front, .profile-back {
-            position: absolute;
-            width: 100%;
-            height: 170px;
-            backface-visibility: hidden;
-            border-radius: 20px;
-            box-shadow: 0 4px 18px #1565c033;
-        }
-        .profile-front {
-            background:
-                linear-gradient(120deg, #e3f2fd 60%, #fff 120%),
-                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-front::before {
-            content: "";
-            position: absolute;
-            top: -30px; left: -60px;
-            width: 160px; height: 160px;
-            background: radial-gradient(circle, #1565c0 48%, transparent 80%);
-            opacity: 0.18;
-            z-index: 0;
-        }
-        .profile-front::after {
-            content: "";
-            position: absolute;
-            bottom: -40px; right: -80px;
-            width: 180px; height: 120px;
-            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
-            opacity: 0.13;
-            z-index: 0;
-        }
-        .profile-front .bg-shape1 {
-            position: absolute;
-            top: 40px; left: 40px;
-            width: 54px; height: 54px;
-            background: linear-gradient(120deg, #42a5f5 20%, #fff 90%);
-            border-radius: 50%;
-            opacity: 0.25;
-            z-index: 0;
-        }
-        .profile-front .bg-shape2 {
-            position: absolute;
-            bottom: 10px; right: 60px;
-            width: 38px; height: 38px;
-            background: linear-gradient(120deg, #1565c0 20%, #fff 90%);
-            border-radius: 50%;
-            opacity: 0.22;
-            z-index: 0;
-        }
-        .profile-title {
-            font-size: 2.4em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #1565c0;
-            text-shadow:
-                1px 1px 0 #42a5f5,
-                2px 2px 0 #42a5f5,
-                4px 4px 12px #1565c088;
-            margin-bottom: 5px;
-            z-index: 1;
-            position: relative;
-        }
-        .profile-subtitle {
-            font-size: 1.25em;
-            color: #fff;
-            font-weight: bold;
-            background: linear-gradient(90deg, #1a237e 55%, #42a5f5 100%);
-            box-shadow: 0 2px 18px #1565c055;
-            text-shadow: 1px 1px 5px #1565c0;
-            border-radius: 8px;
-            padding: 6px 18px;
-            display: inline-block;
-            margin-bottom: 15px;
-            z-index: 1;
-            position: relative;
-        }
-        .profile-flip-hint {
-            color: #287d29;
-            background: #e3f2fd;
-            border-radius: 7px;
-            font-size: 13px;
-            padding: 2px 14px;
-            margin-top: 6px;
-            box-shadow: 0 1px 4px #469d4922;
-            z-index: 2;
-            position: relative;
-            font-weight: 500;
-            transition: background 0.22s;
-        }
-        .profile-flip-hint:hover {
-            background: #c8e6c9;
-        }
-        .profile-back {
-            background:
-                linear-gradient(120deg, #fafafa 50%, #e3f2fd 100%),
-                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
-            color: #1565c0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: rotateY(180deg);
-            border: 2px solid #42a5f5;
-        }
-        .profile-back-title {
-            font-size: 1.15em;
-            font-weight: bold;
-            margin-bottom: 7px;
-            letter-spacing: 1px;
-        }
-        .profile-back-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 8px;
-        }
-        .profile-back-skill-btn {
-            background: linear-gradient(120deg, #42a5f5 60%, #1565c0 100%);
-            color: #fff;
-            border-radius: 50px;
-            padding: 7px 15px;
-            font-size: 14px;
-            font-weight: 500;
-            border: none;
-            box-shadow: 0 2px 8px #42a5f533;
-            cursor: default;
-            transition: 0.15s;
-        }
-        .profile-back-skill-btn:hover { filter: brightness(0.93); transform: scale(1.06);}
-        @media (max-width: 600px) {
-            .profile-flip-container { width: 98vw; }
-            .profile-flip-card, .profile-front, .profile-back { height: 135px; }
-            .profile-title { font-size: 1.3em; }
-            .profile-subtitle { font-size: 1em; padding: 5px 12px;}
-            .profile-back-title { font-size: 0.98em;}
-            .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
-            .profile-front .bg-shape1, .profile-front .bg-shape2 { display: none; }
-        }
-        /* Circle Links Styling */
-        .circle-links-bg {
-            background: linear-gradient(120deg, #1565c0 50%, #42a5f5 100%);
-            padding: 32px 0;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px #1565c022;
-            margin-bottom: 40px;
-            margin-top: 24px;
-            position: relative;
-            z-index: 1;
-        }
-        .circle-links-bg.bottom-circles {
-            margin-top: 0;
-        }
-        .circle-links {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin: 0 auto;
-        }
-        .circle-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: linear-gradient(120deg, #1a237e 40%, #42a5f5 100%);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 2px 10px #0002;
-            transition: 0.18s;
-            border: 2px solid #fff;
-            position: relative;
-            text-align: center;
-        }
-        .circle-btn span {
-            display: block;
-            line-height: 1.2;
-            padding: 0 5px;
-        }
-        .circle-btn.gmail,
-        .circle-btn.linkedin,
-        .circle-btn.github,
-        .circle-btn.phone,
-        .circle-btn.location,
-        .circle-btn.resume,
-        .circle-btn.project {
-            background: linear-gradient(120deg, #1a237e 40%, #42a5f5 100%);
-            color: #fff;
-        }
-        .circle-btn:hover {
-            transform: scale(1.09);
-            filter: brightness(0.95);
-            box-shadow: 0 6px 25px #42a5f5aa;
-            z-index: 1;
-        }
-        section { max-width: 900px; margin: 44px auto 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 32px 24px 32px; position: relative; z-index: 1;}
-        section:not(:first-of-type) { margin-top: 24px;}
-        section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
-        ul, li { margin: 0; padding: 0;}
-        li { margin-bottom: 8px;}
-        /* About section background design */
-        #about {
-            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
-            position: relative;
-            overflow: hidden;
-        }
-        #about:before {
-            content: "";
-            position: absolute;
-            top: -40px; left: -60px;
-            width: 180px; height: 180px;
-            background: radial-gradient(circle, #1565c0 38%, transparent 80%);
-            opacity: 0.15;
-            z-index: 0;
-        }
-        #about:after {
-            content: "";
-            position: absolute;
-            bottom: -60px; right: -100px;
-            width: 240px; height: 140px;
-            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
-            opacity: 0.11;
-            z-index: 0;
-        }
-        #about > * { position: relative; z-index: 1; }
-        #skills {
-            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
-            position: relative;
-            overflow: hidden;
-        }
-        #skills:before {
-            content: "";
-            position: absolute;
-            top: -40px; left: -70px;
-            width: 160px; height: 160px;
-            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
-            opacity: 0.18;
-            z-index: 0;
-        }
-        #skills:after {
-            content: "";
-            position: absolute;
-            bottom: -50px; right: -80px;
-            width: 200px; height: 120px;
-            background: radial-gradient(circle, #1565c0 32%, transparent 80%);
-            opacity: 0.13;
-            z-index: 0;
-        }
-        #skills > * { position: relative; z-index: 1; }
-        .skills-heading {
-            font-size: 1.5em;
-            color: #1565c0;
-            margin-bottom: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .skills-subheading { font-size: 1.15em; color: #1a237e; margin-bottom: 12px; margin-top: 22px;}
-        .circle-skill-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;}
-        .circle-skill-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 62px;
-            min-height: 62px;
-            border-radius: 50%;
-            background: linear-gradient(120deg, #42a5f5 60%, #1565c0 100%);
-            color: #fff;
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 0;
-            box-shadow: 0 2px 8px #42a5f566;
-            border: 2px solid #fff;
-            transition: 0.2s;
-            text-align: center;
-            padding: 0 10px;
-            cursor: default;
-        }
-        .circle-skill-btn:hover { filter: brightness(0.94); transform: scale(1.07);}
-        .skill-horizontal-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px;}
-        .skill-horizontal-btn {
-            background: linear-gradient(90deg,#1565c0,#42a5f5); color: #fff; border: none; padding: 9px 18px; border-radius: 18px; font-weight: 500; font-size: 15px; cursor: default;
-            box-shadow: 0 2px 6px #0001; transition: 0.2s;
-        }
-        .skill-horizontal-btn:hover { filter: brightness(0.97); transform: scale(1.08);}
-        .skill-btns { display:none; }
-        .project-img {
-            width: 100%; max-width: 380px; display: block; margin: 0 auto 20px auto; border-radius: 12px; box-shadow: 0 2px 8px #0002;
-        }
-        .resume-btn {
-            margin-top: 24px; display: flex; justify-content: center;
-        }
-        .resume-btn a, .read-more-btn {
-            background: #469d49; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 1.07em; font-weight: 600; display: inline-block;
-        }
-        .resume-btn a:hover, .read-more-btn:hover { background: #287d29;}
-        .read-more-btn { margin-top: 18px; background: #1565c0; }
-        .read-more-btn:hover { background: #0a3977;}
-        .edu-list { margin-top: 6px;}
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var flipContainer = document.querySelector('.profile-flip-container');
-            if(flipContainer){
-                flipContainer.addEventListener('click', function() {
-                    flipContainer.classList.toggle('flipped');
-                });
-            }
-        });
-    </script>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#internship">Internship</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#education">Education</a>
-            <a href="#resume">Resume</a>
-        </nav>
-    </header>
+<!-- ...rest of your code above... -->
     <!-- Flip Card Profile Section -->
     <div class="profile-flip-container" title="Click to flip and see skills">
         <div class="profile-flip-card">
             <!-- Front Side -->
             <div class="profile-front">
+                <!-- 3D Meta Ads Right -->
+                <div class="profile-side-ads meta-ads">
+                    <span class="ads-icon">
+                        <!-- Meta logo SVG -->
+                        <svg height="32" width="32" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="16" rx="14" ry="14" fill="#42a5f5"/><path d="M23.7 21.7c-1.4 0-2.7-0.9-3.8-2.7-1-1.6-2-3.4-3-5.2-1.1 1.8-2.1 3.6-3 5.2-1.1 1.8-2.4 2.7-3.8 2.7-2.2 0-4-1.6-4-4.2 0-2.7 1.8-5.1 4.6-5.1 2.1 0 3.4 1.5 4.2 2.9 0.8-1.4 2.1-2.9 4.2-2.9 2.8 0 4.6 2.4 4.6 5.1 0.1 2.6-1.7 4.2-4 4.2z" fill="#fff"/></svg>
+                    </span>
+                    <span class="ads-text">META ADS</span>
+                </div>
+                <!-- 3D Google Ads Left -->
+                <div class="profile-side-ads google-ads">
+                    <span class="ads-icon">
+                        <!-- Google Ads icon SVG -->
+                        <svg height="32" width="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="14" fill="#1565c0"/>
+                            <g>
+                                <circle cx="11" cy="21" r="4.1" fill="#fbbc05"/>
+                                <rect x="14.5" y="10" width="4.5" height="13" rx="2.25" fill="#34a853" transform="rotate(-18 16 16)"/>
+                                <rect x="21.5" y="10.5" width="4.4" height="13" rx="2.2" fill="#4285f4" transform="rotate(18 24.7 16.5)"/>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="ads-text">GOOGLE ADS</span>
+                </div>
                 <div class="bg-shape1"></div>
                 <div class="bg-shape2"></div>
                 <div class="profile-title">AAMIR HUSSAIN</div>
@@ -425,129 +52,64 @@
             </div>
         </div>
     </div>
-    <!-- Circle links below profile -->
-    <div class="circle-links-bg bottom-circles">
-        <div class="circle-links">
-            <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
-                <span>Email</span>
-            </a>
-            <a href="https://www.linkedin.com/in/aamirdigitalmarketer/" target="_blank" class="circle-btn linkedin">
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/aamirhussain2002" target="_blank" class="circle-btn github">
-                <span>GitHub</span>
-            </a>
-            <a href="tel:+923078077765" target="_blank" class="circle-btn phone">
-                <span>Mobile</span>
-            </a>
-            <a href="https://maps.google.com/?q=Pakistan" target="_blank" class="circle-btn location">
-                <span>Pakistan</span>
-            </a>
-            <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank" class="circle-btn resume">
-                <span>Resume</span>
-            </a>
-            <a href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank" class="circle-btn project">
-                <span>Project</span>
-            </a>
-        </div>
-    </div>
-    <section id="about">
-        <h3>About</h3>
-        <p>
-            I am a Digital Marketing Specialist focused on Google Ads, Meta Ads, and social media campaigns. I create content for web and social platforms, using data to improve performance and reach the right audience. My content aligns with brand strategy and user intent. Alongside my marketing career, I am undergoing clinical training in optometry. My goal is to lead digital campaigns that deliver real business value.
-        </p>
-    </section>
-    <section id="skills" class="skills-section">
-        <div class="skills-heading"><b>TECHNICAL SKILLS</b></div>
-        <div class="skills-subheading">DIGITAL MARKETING TOOLS</div>
-        <div class="circle-skill-row">
-            <div class="circle-skill-btn">Meta Ads</div>
-            <div class="circle-skill-btn">Google Ads</div>
-            <div class="circle-skill-btn">Facebook Business Manager</div>
-        </div>
-        <div class="skills-subheading">SOCIAL MEDIA PLATFORM</div>
-        <div class="circle-skill-row">
-            <div class="circle-skill-btn">Facebook</div>
-            <div class="circle-skill-btn">Instagram</div>
-            <div class="circle-skill-btn">TikTok</div>
-            <div class="circle-skill-btn">LinkedIn</div>
-        </div>
-        <div class="skills-subheading">STRATEGY AND ANALYSIS</div>
-        <div class="circle-skill-row">
-            <div class="circle-skill-btn">Google Analytics</div>
-            <div class="circle-skill-btn">MS Excel</div>
-            <div class="circle-skill-btn">WordPress</div>
-            <div class="circle-skill-btn">Meta Insights</div>
-        </div>
-    </section>
-    <section id="projects">
-        <h3>Projects</h3>
-        <img src="project.jpg" alt="Digital Brand Launch Project" class="project-img">
-        <ul>
-            <li>
-                <strong>Digital Brand Launch & Campaign Strategy (2025):</strong>
-                <ul>
-                    <li>Designed and launched multi-platform campaigns (Facebook, Instagram, TikTok, YouTube)</li>
-                    <li>SMART objectives for brand awareness & customer acquisition</li>
-                    <li>Audience segmentation, competitor SWOT, brand key & tagline</li>
-                    <li>Created 2-week content calendar with teasers, reels, testimonials</li>
-                    <li>Produced 30-60 sec Digital Video Commercials (DVCs) for YouTube & Facebook</li>
-                    <li>Boosted ads and tracked KPIs: reach, engagement, CTR, conversions</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="resume-btn">
-            <a class="read-more-btn" href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">Read More</a>
-        </div>
-    </section>
-    <section id="internship">
-        <h3>Internship</h3>
-        <ul>
-            <li>
-                <strong>M Tech Solution – Digital Marketing Intern (Aug 2025 – Present, Islamabad):</strong>
-                <ul>
-                    <li>Planning, executing, and optimizing online marketing campaigns</li>
-                    <li>Google Ads: Keyword research, search intent analysis, negative keyword management</li>
-                    <li>Performance analysis: CTR, CPC, conversions, ROI</li>
-                    <li>Campaign optimization: bids, budgets, targeting</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Alshifa Trust Eye Hospital – Trainee Optometrist (2023 – 2026, Rawalpindi):</strong>
-                <ul>
-                    <li>Conducted eye exams: Refraction, Retinoscopy, Orthoptic assessment</li>
-                    <li>Patient communication and data documentation</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <section id="certificates">
-        <h3>Certificates</h3>
-        <div class="cert-btns">
-            <button class="cert-btn">Digital Marketing Certificate – IEC</button>
-            <button class="cert-btn">Digital Marketing Certified – IEC</button>
-            <button class="cert-btn">HubSpot Academy</button>
-            <button class="cert-btn">Top Scorer FSc Pre Medical</button>
-        </div>
-        <div class="cert-detail"><strong>Digital Marketing Certificate – IEC:</strong> Certificate for mastering Google Ads, Meta Ads, Campaign Planning & Analytics.</div>
-        <div class="cert-detail"><strong>Digital Marketing Certified – IEC:</strong> Earned for advanced digital marketing skills and strategy implementation.</div>
-        <div class="cert-detail"><strong>Certificate of Achievements – HubSpot Academy:</strong> Awarded for completing marketing and analytics modules.</div>
-        <div class="cert-detail"><strong>Top Scorer in FSc Pre Medical:</strong> Govt Higher Secondary School, top marks in Pre-Medical.</div>
-    </section>
-    <section id="education">
-        <h3>Education</h3>
-        <ul class="edu-list">
-            <li>Digital Marketing – Institute of Emerging Careers (IEC), Mianwali (Apr 2025 – Sep 2025)</li>
-            <li>Bachelor of Optometry & Orthoptics – University of Health Sciences, Lahore (2023 – 2026)</li>
-            <li>FSc (Pre-Medical) – Govt Higher Secondary School, Kamar Mushani (2019 – 2021)</li>
-            <li>Matric Science Group – Govt High School Trag, Trag Sharif (2017 – 2019)</li>
-        </ul>
-    </section>
-    <section id="resume">
-        <h3>Resume</h3>
-        <div class="resume-btn">
-            <a href="https://www.canva.com/design/DAGswSTfhEE/_9SBy_fGhiGGz2PLZT--EQ/view?utm_content=DAGswSTfhEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3010a0c276" target="_blank">Download Resume</a>
-        </div>
-    </section>
-</body>
-</html>
+<!-- ...rest of your code below... -->
+    <style>
+        /* 3D Meta & Google Ads side badges */
+        .profile-front .profile-side-ads {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex; flex-direction: row; align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            z-index: 2;
+            filter: drop-shadow(0 2px 8px #1565c033);
+            border-radius: 28px;
+            padding: 7px 18px 7px 7px;
+            background: linear-gradient(120deg, #fff 40%, #e3f2fd 100%);
+            box-shadow: 0 2px 10px #42a5f533;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .profile-front .profile-side-ads:hover {
+            transform: translateY(-50%) scale(1.08) rotate(-2deg);
+            box-shadow: 0 6px 18px #42a5f5aa;
+            background: linear-gradient(120deg, #bbdefb 40%, #fff 100%);
+        }
+        .profile-front .meta-ads {
+            right: -16px;
+            flex-direction: row-reverse;
+            padding: 7px 7px 7px 18px;
+            background: linear-gradient(120deg, #42a5f5 45%, #fff 100%);
+            color: #fff;
+            border: 2px solid #1565c0;
+        }
+        .profile-front .google-ads {
+            left: -16px;
+            background: linear-gradient(120deg, #1565c0 40%, #fff 100%);
+            color: #fff;
+            border: 2px solid #42a5f5;
+        }
+        .profile-front .ads-icon {
+            margin: 0 7px;
+            display: flex;
+            align-items: center;
+            filter: drop-shadow(0 2px 6px #0002);
+        }
+        .profile-front .ads-text {
+            font-weight: bold;
+            font-size: 1em;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 6px #fff8;
+        }
+        @media (max-width: 600px) {
+            .profile-front .profile-side-ads {
+                font-size: 0.9em;
+                padding: 4px 4px 4px 10px;
+            }
+            .profile-front .meta-ads { right: -4px; }
+            .profile-front .google-ads { left: -4px; }
+            .profile-front .ads-icon svg { height: 24px !important; width: 24px !important; }
+        }
+    </style>
+<!-- ...rest of your code remains unchanged... -->
