@@ -10,7 +10,7 @@
         nav { background: #0a3977; color: #fff; display: flex; justify-content: center; gap: 32px; padding: 12px 0;}
         nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 16px;}
         nav a:hover { text-decoration: underline;}
-        /* Flip Card Styles */
+        /* Flip Card Styles - flip right */
         .profile-flip-container {
             perspective: 1000px;
             width: 440px;
@@ -26,7 +26,7 @@
             cursor: pointer;
         }
         .profile-flip-container.flipped .profile-flip-card {
-            transform: rotateY(180deg);
+            transform: rotateY(-180deg); /* flip to the left */
         }
         .profile-front, .profile-back {
             position: absolute;
@@ -38,7 +38,9 @@
         }
         /* 3D Name Styling & Background Design */
         .profile-front {
-            background: linear-gradient(120deg, #e3f2fd 60%, #fff 120%);
+            background:
+                linear-gradient(120deg, #e3f2fd 60%, #fff 120%),
+                url("https://www.transparenttextures.com/patterns/pw-maze-white.png"); /* Subtle geometric pattern */
             position: relative;
             overflow: hidden;
             display: flex;
@@ -62,6 +64,25 @@
             width: 180px; height: 120px;
             background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
             opacity: 0.13;
+            z-index: 0;
+        }
+        /* Extra background shapes for more design */
+        .profile-front .bg-shape1 {
+            position: absolute;
+            top: 40px; left: 40px;
+            width: 54px; height: 54px;
+            background: linear-gradient(120deg, #42a5f5 20%, #fff 90%);
+            border-radius: 50%;
+            opacity: 0.25;
+            z-index: 0;
+        }
+        .profile-front .bg-shape2 {
+            position: absolute;
+            bottom: 10px; right: 60px;
+            width: 38px; height: 38px;
+            background: linear-gradient(120deg, #1565c0 20%, #fff 90%);
+            border-radius: 50%;
+            opacity: 0.22;
             z-index: 0;
         }
         .profile-title {
@@ -110,7 +131,9 @@
         }
         /* Back Side */
         .profile-back {
-            background: linear-gradient(120deg, #fafafa 50%, #e3f2fd 100%);
+            background:
+                linear-gradient(120deg, #fafafa 50%, #e3f2fd 100%),
+                url("https://www.transparenttextures.com/patterns/pw-maze-white.png");
             color: #1565c0;
             display: flex;
             flex-direction: column;
@@ -153,6 +176,7 @@
             .profile-subtitle { font-size: 1em; padding: 5px 12px;}
             .profile-back-title { font-size: 0.98em;}
             .profile-back-skill-btn { font-size: 12px; padding: 4px 8px;}
+            .profile-front .bg-shape1, .profile-front .bg-shape2 { display: none; }
         }
         /* Circle Links Styling */
         .circle-links-bg {
@@ -221,7 +245,7 @@
         li { margin-bottom: 8px;}
         /* About section background design */
         #about {
-            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%);
+            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
             position: relative;
             overflow: hidden;
         }
@@ -246,7 +270,7 @@
         #about > * { position: relative; z-index: 1; }
         /* Custom skills section */
         #skills {
-            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%);
+            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
             position: relative;
             overflow: hidden;
         }
@@ -348,6 +372,8 @@
         <div class="profile-flip-card">
             <!-- Front Side -->
             <div class="profile-front">
+                <div class="bg-shape1"></div>
+                <div class="bg-shape2"></div>
                 <div class="profile-title">AAMIR HUSSAIN</div>
                 <div class="profile-subtitle">DIGITAL MARKETING SPECIALIST</div>
                 <div class="profile-flip-hint">Click to see my skills</div>
