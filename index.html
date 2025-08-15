@@ -267,7 +267,6 @@
         section h3 { color: #1565c0; margin-top: 0; margin-bottom: 12px;}
         ul, li { margin: 0; padding: 0;}
         li { margin-bottom: 8px;}
-        /* Portfolio + Name left align line styling */
         #about {
             background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
             position: relative;
@@ -366,7 +365,6 @@
         .read-more-btn { margin-top: 18px; background: #1565c0; }
         .read-more-btn:hover { background: #0a3977;}
         .edu-list { margin-top: 6px;}
-        /* Portfolio + Name left align line styling */
         .portfolio-header-line {
             display: flex;
             align-items: center;
@@ -392,6 +390,130 @@
             .portfolio-header-line { font-size: 1em; gap: 9px;}
             .portfolio-header-name { font-size: 1em;}
             .portfolio-header-title { font-size: 1em;}
+        }
+
+        /* Project Section Styling */
+        #projects {
+            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #1565c022;
+        }
+        #projects:before {
+            content: "";
+            position: absolute;
+            top: -40px; left: -60px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #42a5f5 38%, transparent 80%);
+            opacity: 0.13;
+            z-index: 0;
+        }
+        #projects:after {
+            content: "";
+            position: absolute;
+            bottom: -60px; right: -100px;
+            width: 240px; height: 140px;
+            background: radial-gradient(circle, #1565c0 32%, transparent 80%);
+            opacity: 0.11;
+            z-index: 0;
+        }
+        #projects > * { position: relative; z-index: 1; }
+        .projects-heading {
+            font-size: 1.8em;
+            color: #1565c0;
+            margin-bottom: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .project-card {
+            background: linear-gradient(120deg, #fff 60%, #e3f2fd 120%);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px #1565c033;
+            padding: 28px 20px 22px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 24px;
+            position: relative;
+        }
+        .project-img-wrap {
+            flex: 1 1 220px;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .project-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #42a5f544;
+            border: 2px solid #e3f2fd;
+        }
+        .project-details {
+            flex: 2 1 350px;
+            min-width: 240px;
+        }
+        .project-title {
+            font-size: 1.23em;
+            color: #1565c0;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .project-desc-list {
+            margin-left: 18px;
+            margin-bottom: 10px;
+        }
+        .project-desc-list li {
+            margin-bottom: 7px;
+            font-size: 1em;
+            color: #1a237e;
+            line-height: 1.5;
+        }
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 9px;
+            margin-bottom: 12px;
+        }
+        .project-tag {
+            background: linear-gradient(120deg, #42a5f5 60%, #1565c0 100%);
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px #42a5f533;
+        }
+        .project-btn-row {
+            margin-top: 16px;
+            display: flex;
+            gap: 16px;
+        }
+        .project-btn {
+            background: #1565c0;
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.07em;
+            font-weight: 600;
+            box-shadow: 0 2px 8px #1565c055;
+            transition: background 0.18s, transform 0.20s;
+            display: inline-block;
+        }
+        .project-btn:hover { background: #0a3977; transform: scale(1.06);}
+        @media (max-width: 700px) {
+            .project-card { flex-direction: column; gap: 11px; padding: 16px 8px;}
+            .project-img-wrap { max-width: 100%; }
+            .project-img { max-width: 98vw;}
+            .project-details { min-width: 0;}
         }
     </style>
     <script>
@@ -507,13 +629,24 @@
             <div class="circle-skill-btn">Meta Insights</div>
         </div>
     </section>
+    <!-- Redesigned Project Section -->
     <section id="projects">
-        <h3>Projects</h3>
-        <img src="project.jpg" alt="Digital Brand Launch Project" class="project-img">
-        <ul>
-            <li>
-                <strong>Digital Brand Launch & Campaign Strategy (2025):</strong>
-                <ul>
+        <div class="projects-heading">PROJECTS</div>
+        <div class="project-card">
+            <div class="project-img-wrap">
+                <img src="project.jpg" alt="Digital Brand Launch Project" class="project-img">
+            </div>
+            <div class="project-details">
+                <div class="project-title">Digital Brand Launch & Campaign Strategy (2025)</div>
+                <div class="project-tags">
+                    <span class="project-tag">Brand Launch</span>
+                    <span class="project-tag">Social Media</span>
+                    <span class="project-tag">Meta Ads</span>
+                    <span class="project-tag">Google Ads</span>
+                    <span class="project-tag">Strategy</span>
+                    <span class="project-tag">Analytics</span>
+                </div>
+                <ul class="project-desc-list">
                     <li>Designed and launched multi-platform campaigns (Facebook, Instagram, TikTok, YouTube)</li>
                     <li>SMART objectives for brand awareness & customer acquisition</li>
                     <li>Audience segmentation, competitor SWOT, brand key & tagline</li>
@@ -521,10 +654,10 @@
                     <li>Produced 30-60 sec Digital Video Commercials (DVCs) for YouTube & Facebook</li>
                     <li>Boosted ads and tracked KPIs: reach, engagement, CTR, conversions</li>
                 </ul>
-            </li>
-        </ul>
-        <div class="resume-btn">
-            <a class="read-more-btn" href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">Read More</a>
+                <div class="project-btn-row">
+                    <a class="project-btn" href="https://github.com/aamirhussain2002/DIGITAL-BRAND-LAUNCH-CAMPAIGN-STRATEGY" target="_blank">Read More</a>
+                </div>
+            </div>
         </div>
     </section>
     <section id="internship">
