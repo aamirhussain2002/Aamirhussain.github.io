@@ -323,7 +323,31 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        .skills-subheading { font-size: 1.15em; color: #1a237e; margin-bottom: 12px; margin-top: 22px;}
+        /* Bold and colored skills subheading */
+        .skills-subheading {
+            font-size: 1.15em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            margin-top: 22px;
+            padding: 5px 18px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .skills-subheading:nth-of-type(1) {
+            background: linear-gradient(90deg,#42a5f5 60%, #1565c0 100%);
+            color: #fff;
+            box-shadow: 0 2px 10px #1565c033;
+        }
+        .skills-subheading:nth-of-type(2) {
+            background: linear-gradient(90deg,#90caf9 60%, #42a5f5 100%);
+            color: #1565c0;
+            box-shadow: 0 2px 10px #42a5f522;
+        }
+        .skills-subheading:nth-of-type(3) {
+            background: linear-gradient(90deg,#bbdefb 60%, #90caf9 100%);
+            color: #1a237e;
+            box-shadow: 0 2px 10px #bbdefb44;
+        }
         .circle-skill-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;}
         .circle-skill-btn {
             display: flex;
@@ -492,6 +516,13 @@
             .project-name { font-size: 1.07em;}
             .project-detail { font-size: 0.94em;}
         }
+        /* ABOUT heading bold and uppercase */
+        #about h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.3em;
+            letter-spacing: 2px;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -578,7 +609,7 @@
         <span class="portfolio-header-title"><b>Portfolio</b></span>
     </div>
     <section id="about">
-        <h3>About</h3>
+        <h3>ABOUT</h3>
         <p>
             I am a Digital Marketing Specialist focused on Google Ads, Meta Ads, and social media campaigns. I create content for web and social platforms, using data to improve performance and reach the right audience. My content aligns with brand strategy and user intent. Alongside my marketing career, I am undergoing clinical training in optometry. My goal is to lead digital campaigns that deliver real business value.
         </p>
@@ -591,7 +622,7 @@
             <div class="circle-skill-btn">Google Ads</div>
             <div class="circle-skill-btn">Facebook Business Manager</div>
         </div>
-        <div class="skills-subheading">SOCIAL MEDIA PLATFORM</div>
+        <div class="skills-subheading">SOCIAL MEDIA PLATFORMS</div>
         <div class="circle-skill-row">
             <div class="circle-skill-btn">Facebook</div>
             <div class="circle-skill-btn">Instagram</div>
