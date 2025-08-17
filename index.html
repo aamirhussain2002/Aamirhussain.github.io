@@ -329,7 +329,6 @@
                 4px 4px 12px #1565c088;
         }
         .skills-heading { margin-bottom: 4px; }
-        /* Skills subheading: bold, black color, button-style matching site theme */
         .skills-subheading {
             font-size: 1.15em;
             font-weight: bold;
@@ -412,7 +411,6 @@
             .portfolio-header-title { font-size: 1em;}
             #about h3, .skills-heading, .project-3d-heading { font-size: 1.3em; }
         }
-        /* 3D Animated Project Heading */
         .project-3d-heading {
             text-align: center;
             margin-bottom: 18px;
@@ -479,7 +477,6 @@
             z-index: 1;
             padding: 0 8px;
         }
-        /* Keep Read More button style same as rest of site */
         .project-btn-row {
             margin-top: 22px;
             display: flex;
@@ -499,6 +496,40 @@
             margin: 0 auto;
         }
         .project-btn:hover { background: #0a3977; transform: scale(1.06);}
+        /* Internship Cards */
+        .internship-cards-row {
+            display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
+        }
+        .internship-card {
+            background:#fff; border-radius:18px; box-shadow:0 4px 24px #1565c022;
+            max-width:410px; width:100%; overflow:hidden; position:relative;
+            margin-bottom:18px;
+        }
+        .internship-card img {
+            width:100%; height:180px; object-fit:cover;
+        }
+        .internship-card-content {
+            padding:24px 22px 18px 22px;
+        }
+        .internship-card-title {
+            font-size:1.18em; font-weight:bold; color:#1565c0; margin-bottom:8px;
+        }
+        .internship-card-company {
+            font-weight:600; color:#222; margin-bottom:2px;
+        }
+        .internship-card-meta {
+            font-size:0.97em; color:#444;
+        }
+        .internship-read-btn {
+            margin:16px 0 0 0; background:linear-gradient(120deg,#42a5f5 60%,#1565c0 100%);
+            color:#fff; padding:10px 28px; border:none; border-radius:8px; font-size:1em; font-weight:600;
+            box-shadow:0 2px 8px #42a5f533; cursor:pointer; transition:background 0.18s,transform 0.20s;
+        }
+        .internship-read-btn:hover { background:#0a3977; transform:scale(1.06);}
+        .internship-details {
+            display:none; margin-top:18px; background:#e3f2fd; border-radius:12px; padding:15px 10px; box-shadow:0 1px 8px #1565c033;
+        }
+        .internship-details ul { margin-top:8px; padding-left:16px;}
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -507,6 +538,11 @@
                 flipContainer.addEventListener('click', function() {
                     flipContainer.classList.toggle('flipped');
                 });
+            }
+            // Internship card read more toggle
+            window.showInternshipDetails = function(id) {
+                document.getElementById(id).style.display = 'block';
+                document.getElementById(id + '-btn').style.display = 'none';
             }
         });
     </script>
@@ -628,27 +664,65 @@
             </div>
         </div>
     </section>
+    <!-- Redesigned Internship Section Start -->
     <section id="internship">
-        <h3>Internship</h3>
-        <ul>
-            <li>
-                <strong>M Tech Solution – Digital Marketing Intern (Aug 2025 – Present, Islamabad):</strong>
-                <ul>
-                    <li>Planning, executing, and optimizing online marketing campaigns</li>
-                    <li>Google Ads: Keyword research, search intent analysis, negative keyword management</li>
-                    <li>Performance analysis: CTR, CPC, conversions, ROI</li>
-                    <li>Campaign optimization: bids, budgets, targeting</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Alshifa Trust Eye Hospital – Trainee Optometrist (2023 – 2026, Rawalpindi):</strong>
-                <ul>
-                    <li>Conducted eye exams: Refraction, Retinoscopy, Orthoptic assessment</li>
-                    <li>Patient communication and data documentation</li>
-                </ul>
-            </li>
-        </ul>
+        <h3 style="font-size:2.4em; color:#1565c0; margin-bottom: 24px; text-shadow:1px 1px 0 #42a5f5,2px 2px 0 #42a5f5,4px 4px 12px #1565c088;">
+            Internships
+        </h3>
+        <div class="internship-cards-row">
+            <!-- M Tech Solutions Internship Card -->
+            <div class="internship-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing Intern">
+                <div class="internship-card-content">
+                    <div class="internship-card-title">Digital Marketing Intern</div>
+                    <div class="internship-card-company">M Tech Solutions · Internship</div>
+                    <div class="internship-card-meta">
+                        Aug 2025 - Present<br>
+                        Islāmābād, Pakistan · On-site
+                    </div>
+                    <button id="intern1-details-btn" onclick="showInternshipDetails('intern1-details')" class="internship-read-btn">
+                        Read More
+                    </button>
+                    <div id="intern1-details" class="internship-details">
+                        <p>
+                            As a Digital Marketing Intern, I actively contribute to the planning, execution, and optimization of Google Ads campaigns. Working under the supervision of senior marketing strategists, I assist in driving targeted traffic, generating quality leads, and improving ad performance through data-driven decision-making. This role has given me hands-on experience in PPC advertising, audience targeting, and campaign analytics, enhancing my skills in digital advertising and performance marketing.
+                        </p>
+                        <b>Key Responsibilities &amp; Skills:</b>
+                        <ul>
+                            <li>Create, manage, and optimize Google Ads and Meta Ads campaigns to improve ROI.</li>
+                            <li>Conduct keyword research and audience segmentation for Search, Display, and Social Media campaigns.</li>
+                            <li>Develop engaging ad creatives, headlines, and A/B testing strategies to improve CTR and conversions.</li>
+                            <li>Monitor campaign performance metrics (CPC, CTR, ROAS) and adjust bids, targeting, and creatives accordingly.</li>
+                            <li>Implement remarketing strategies to re-engage potential customers.</li>
+                            <li>Generate detailed campaign reports and present optimization recommendations to the marketing team.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Alshifa Trust Eye Hospital Internship Card -->
+            <div class="internship-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Trainee Optometrist">
+                <div class="internship-card-content">
+                    <div class="internship-card-title">Trainee Optometrist</div>
+                    <div class="internship-card-company">Alshifa Trust Eye Hospital · Internship</div>
+                    <div class="internship-card-meta">
+                        2023 - 2026<br>
+                        Rawalpindi, Pakistan
+                    </div>
+                    <button id="intern2-details-btn" onclick="showInternshipDetails('intern2-details')" class="internship-read-btn">
+                        Read More
+                    </button>
+                    <div id="intern2-details" class="internship-details">
+                        <ul>
+                            <li>Conducted eye exams: Refraction, Retinoscopy, Orthoptic assessment</li>
+                            <li>Patient communication and data documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- Redesigned Internship Section End -->
     <section id="certificates">
         <h3>Certificates</h3>
         <div class="cert-btns">
