@@ -316,8 +316,7 @@
         #skills > * { position: relative; z-index: 1; }
         #about h3,
         .skills-heading,
-        .project-3d-heading,
-        .experience-section-heading {
+        .project-3d-heading {
             font-size: 2.4em;
             font-weight: bold;
             text-transform: uppercase;
@@ -410,7 +409,7 @@
             .portfolio-header-line { font-size: 1em; gap: 9px;}
             .portfolio-header-name { font-size: 1em;}
             .portfolio-header-title { font-size: 1em;}
-            #about h3, .skills-heading, .project-3d-heading, .experience-section-heading { font-size: 1.3em; }
+            #about h3, .skills-heading, .project-3d-heading { font-size: 1.3em; }
         }
         .project-3d-heading {
             text-align: center;
@@ -497,50 +496,40 @@
             margin: 0 auto;
         }
         .project-btn:hover { background: #0a3977; transform: scale(1.06);}
-        /* Experience Cards */
-        .experience-section-bg {
-            background: linear-gradient(120deg, #e3f2fd 80%, #fff 100%), url("https://www.transparenttextures.com/patterns/cubes.png");
-            border-radius: 12px;
-            box-shadow: 0 2px 8px #0001;
-            padding: 32px 32px 24px 32px;
-            margin: 44px auto 0 auto;
-            max-width: 900px;
-            position: relative;
-            overflow: hidden;
-        }
-        .experience-cards-row {
+        /* Internship Cards */
+        .internship-cards-row {
             display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
         }
-        .experience-card {
+        .internship-card {
             background:#fff; border-radius:18px; box-shadow:0 4px 24px #1565c022;
             max-width:410px; width:100%; overflow:hidden; position:relative;
             margin-bottom:18px;
         }
-        .experience-card img {
+        .internship-card img {
             width:100%; height:180px; object-fit:cover;
         }
-        .experience-card-content {
+        .internship-card-content {
             padding:24px 22px 18px 22px;
         }
-        .experience-card-title {
+        .internship-card-title {
             font-size:1.18em; font-weight:bold; color:#1565c0; margin-bottom:8px;
         }
-        .experience-card-company {
+        .internship-card-company {
             font-weight:600; color:#222; margin-bottom:2px;
         }
-        .experience-card-meta {
+        .internship-card-meta {
             font-size:0.97em; color:#444;
         }
-        .experience-read-btn {
-            margin:16px 0 0 0; background:linear-gradient(120deg,#42a5f5 60%, #1565c0 100%);
+        .internship-read-btn {
+            margin:16px 0 0 0; background:linear-gradient(120deg,#42a5f5 60%,#1565c0 100%);
             color:#fff; padding:10px 28px; border:none; border-radius:8px; font-size:1em; font-weight:600;
             box-shadow:0 2px 8px #42a5f533; cursor:pointer; transition:background 0.18s,transform 0.20s;
         }
-        .experience-read-btn:hover { background:#0a3977; transform:scale(1.06);}
-        .experience-details {
+        .internship-read-btn:hover { background:#0a3977; transform:scale(1.06);}
+        .internship-details {
             display:none; margin-top:18px; background:#e3f2fd; border-radius:12px; padding:15px 10px; box-shadow:0 1px 8px #1565c033;
         }
-        .experience-details ul { margin-top:8px; padding-left:16px;}
+        .internship-details ul { margin-top:8px; padding-left:16px;}
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -550,8 +539,8 @@
                     flipContainer.classList.toggle('flipped');
                 });
             }
-            // Experience card read more toggle
-            window.showExperienceDetails = function(id) {
+            // Internship card read more toggle
+            window.showInternshipDetails = function(id) {
                 document.getElementById(id).style.display = 'block';
                 document.getElementById(id + '-btn').style.display = 'none';
             }
@@ -564,7 +553,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
+            <a href="#internship">Internship</a>
             <a href="#certificates">Certificates</a>
             <a href="#education">Education</a>
             <a href="#resume">Resume</a>
@@ -602,7 +591,7 @@
     </div>
     <div class="circle-links-bg bottom-circles">
         <div class="circle-links">
-            <a href="mailto:altafawan1974@gmail.com" target="_blank" class="circle-btn gmail">
+            <a href="mailto:malikaamirhussain2002@gmail.com" target="_blank" class="circle-btn gmail">
                 <span>Email</span>
             </a>
             <a href="https://www.linkedin.com/in/aamirdigitalmarketer/" target="_blank" class="circle-btn linkedin">
@@ -611,8 +600,8 @@
             <a href="https://github.com/aamirhussain2002" target="_blank" class="circle-btn github">
                 <span>GitHub</span>
             </a>
-            <a href="https://wa.me/923078077765" target="_blank" class="circle-btn phone">
-                <span>+923078077765</span>
+            <a href="tel:+923078077765" target="_blank" class="circle-btn phone">
+                <span>Mobile</span>
             </a>
             <a href="https://maps.google.com/?q=Pakistan" target="_blank" class="circle-btn location">
                 <span>Pakistan</span>
@@ -675,24 +664,26 @@
             </div>
         </div>
     </section>
-    <!-- Redesigned Experience Section Start -->
-    <section id="experience" class="experience-section-bg">
-        <h3 class="experience-section-heading">EXPERIENCE</h3>
-        <div class="experience-cards-row">
-            <!-- M Tech Solutions Experience Card -->
-            <div class="experience-card">
+    <!-- Redesigned Internship Section Start -->
+    <section id="internship">
+        <h3 style="font-size:2.4em; color:#1565c0; margin-bottom: 24px; text-shadow:1px 1px 0 #42a5f5,2px 2px 0 #42a5f5,4px 4px 12px #1565c088;">
+            Internships
+        </h3>
+        <div class="internship-cards-row">
+            <!-- M Tech Solutions Internship Card -->
+            <div class="internship-card">
                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Digital Marketing Intern">
-                <div class="experience-card-content">
-                    <div class="experience-card-title">Digital Marketing Intern</div>
-                    <div class="experience-card-company">M Tech Solutions · Internship</div>
-                    <div class="experience-card-meta">
+                <div class="internship-card-content">
+                    <div class="internship-card-title">Digital Marketing Intern</div>
+                    <div class="internship-card-company">M Tech Solutions · Internship</div>
+                    <div class="internship-card-meta">
                         Aug 2025 - Present<br>
                         Islāmābād, Pakistan · On-site
                     </div>
-                    <button id="exp1-details-btn" onclick="showExperienceDetails('exp1-details')" class="experience-read-btn">
+                    <button id="intern1-details-btn" onclick="showInternshipDetails('intern1-details')" class="internship-read-btn">
                         Read More
                     </button>
-                    <div id="exp1-details" class="experience-details">
+                    <div id="intern1-details" class="internship-details">
                         <p>
                             As a Digital Marketing Intern, I actively contribute to the planning, execution, and optimization of Google Ads campaigns. Working under the supervision of senior marketing strategists, I assist in driving targeted traffic, generating quality leads, and improving ad performance through data-driven decision-making. This role has given me hands-on experience in PPC advertising, audience targeting, and campaign analytics, enhancing my skills in digital advertising and performance marketing.
                         </p>
@@ -708,32 +699,30 @@
                     </div>
                 </div>
             </div>
-            <!-- Excelerate Social Media Analyst Experience Card -->
-            <div class="experience-card">
-                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Social Media Analyst Intern">
-                <div class="experience-card-content">
-                    <div class="experience-card-title">Social Media Analyst Intern</div>
-                    <div class="experience-card-company">Excelerate · Internship</div>
-                    <div class="experience-card-meta">
-                        Remote | Aug 2025 – Sep 2025
+            <!-- Alshifa Trust Eye Hospital Internship Card -->
+            <div class="internship-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Trainee Optometrist">
+                <div class="internship-card-content">
+                    <div class="internship-card-title">Trainee Optometrist</div>
+                    <div class="internship-card-company">Alshifa Trust Eye Hospital · Internship</div>
+                    <div class="internship-card-meta">
+                        2023 - 2026<br>
+                        Rawalpindi, Pakistan
                     </div>
-                    <button id="exp2-details-btn" onclick="showExperienceDetails('exp2-details')" class="experience-read-btn">
+                    <button id="intern2-details-btn" onclick="showInternshipDetails('intern2-details')" class="internship-read-btn">
                         Read More
                     </button>
-                    <div id="exp2-details" class="experience-details">
+                    <div id="intern2-details" class="internship-details">
                         <ul>
-                            <li>Conducted social media audits to evaluate performance and audience engagement across multiple platforms.</li>
-                            <li>Researched and implemented latest social media strategies to amplify brand presence.</li>
-                            <li>Utilized analytics tools to study engagement trends & audience demographics.</li>
-                            <li>Created targeted, visually compelling content for Instagram, Facebook, LinkedIn, and YouTube.</li>
-                            <li>Collaborated with associates and peers in a 360-degree evaluation framework, enhancing communication and leadership skills.</li>
+                            <li>Conducted eye exams: Refraction, Retinoscopy, Orthoptic assessment</li>
+                            <li>Patient communication and data documentation</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Redesigned Experience Section End -->
+    <!-- Redesigned Internship Section End -->
     <section id="certificates">
         <h3>Certificates</h3>
         <div class="cert-btns">
